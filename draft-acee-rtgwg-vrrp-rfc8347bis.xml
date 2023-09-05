@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-acee-rtgwg-vrrp-rfc8347bis-00"
+    docName="draft-acee-rtgwg-vrrp-rfc8347bis-02"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -25,6 +25,20 @@ please see http://xml.resource.org/authoring/README.html. -->
     <title abbrev='YANG VRRP'>
       A YANG Data Model for the Virtual Router Redundancy Protocol (VRRP)
     </title>
+
+    <author fullname="Acee Lindem" initials="A." surname="Lindem">
+      <organization></organization>
+      <address>
+        <postal>
+          <street>301 Midenhall Way</street>
+          <city>Cary</city>
+          <region>NC</region>
+          <code>27513</code>
+          <country>United States of America</country>
+        </postal>
+        <email>acee.ietf@gmail.com</email>
+      </address>
+    </author>
 
     <author fullname="Xufeng Liu" initials="X." surname="Liu" role="editor">
       <organization>Jabil</organization>
@@ -65,20 +79,6 @@ please see http://xml.resource.org/authoring/README.html. -->
           <country>United States of America</country>
         </postal>
         <email>parikhr@vmware.com</email>
-      </address>
-    </author>
-
-    <author fullname="Acee Lindem" initials="A." surname="Lindem">
-      <organization>Cisco Systems</organization>
-      <address>
-        <postal>
-          <street>301 Midenhall Way</street>
-          <city>Cary</city>
-          <region>NC</region>
-          <code>27513</code>
-          <country>United States of America</country>
-        </postal>
-        <email>acee@cisco.com</email>
       </address>
     </author>
 
@@ -718,7 +718,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 </t>
 
  <figure><artwork>
-<![CDATA[<CODE BEGINS> file "ietf-vrrp@2023-03-08.yang"
+<![CDATA[<CODE BEGINS> file "ietf-vrrp@2023-09-05.yang"
 module ietf-vrrp {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-vrrp";
@@ -785,7 +785,7 @@ module ietf-vrrp {
      described in BCP 14 (RFC 2119) (RFC 8174) when, and only when,
      they appear in all capitals, as shown here.";
 
-  revision 2023-03-08 {
+  revision 2023-09-05 {
     description
       "Initial revision.";
     reference
@@ -1493,7 +1493,7 @@ module ietf-vrrp {
         type yang:counter32;
         description
           "The total number of times that this virtual router's
-           state has transitioned to 'master'.";
+           state has transitioned to 'Active'.";
       }
 
       leaf advertisement-rcvd {
