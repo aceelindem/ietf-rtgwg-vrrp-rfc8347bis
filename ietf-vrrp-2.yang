@@ -558,7 +558,7 @@ module ietf-vrrp-2 {
           description
             "An IPv4 address associated with a virtual router.";
           reference
-            "RFC 5798: Virtual Router Redundancy Protocol (VRRP)
+            "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
                        Version 3 for IPv4 and IPv6.  Section 1.2";
         }
       } // virtual-ipv4-address
@@ -671,7 +671,7 @@ module ietf-vrrp-2 {
           description
             "An IPv6 address associated with a virtual router.";
           reference
-            "RFC 5798: Virtual Router Redundancy Protocol (VRRP)
+            "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
                        Version 3 for IPv4 and IPv6.  Section 1.3";
         }
       } // virtual-ipv6-address
@@ -859,7 +859,7 @@ module ietf-vrrp-2 {
           "The total number of VRRP packets received with an invalid
            VRRP checksum value.";
         reference
-          "RFC 5798: Virtual Router Redundancy Protocol (VRRP)
+          "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
                      Version 3 for IPv4 and IPv6.  Section 5.2.8";
       }
       leaf version-errors {
@@ -868,7 +868,7 @@ module ietf-vrrp-2 {
           "The total number of VRRP packets received with an unknown
            or unsupported version number.";
         reference
-          "RFC 5798: Virtual Router Redundancy Protocol (VRRP)
+          "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
                      Version 3 for IPv4 and IPv6.  Section 5.2.1";
       }
       leaf vrid-errors {
@@ -877,7 +877,7 @@ module ietf-vrrp-2 {
           "The total number of VRRP packets received with a VRID that
            is not valid for any virtual router on this router.";
         reference
-          "RFC 5798: Virtual Router Redundancy Protocol (VRRP)
+          "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
                      Version 3 for IPv4 and IPv6.  Section 5.2.3";
       }
       leaf ip-ttl-errors {
@@ -887,7 +887,7 @@ module ietf-vrrp-2 {
            virtual router with IP TTL (IPv4) or Hop Limit (IPv6)
            not equal to 255.";
         reference
-          "RFC 5798: Virtual Router Redundancy Protocol (VRRP)
+          "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
                      Version 3 for IPv4 and IPv6.
                      Sections 5.1.1.3 and 5.1.2.3";
       }
