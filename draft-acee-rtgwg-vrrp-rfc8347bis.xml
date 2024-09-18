@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-acee-rtgwg-vrrp-rfc8347bis-04"
+    docName="draft-acee-rtgwg-vrrp-rfc8347bis-05"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -26,7 +26,7 @@ please see http://xml.resource.org/authoring/README.html. -->
       A YANG Data Model for the Virtual Router Redundancy Protocol (VRRP)
     </title>
 
-    <author fullname="Acee Lindem" initials="A." surname="Lindem">
+    <author fullname="Acee Lindem" initials="A." surname="Lindem"  role="editor">
       <organization>LabN Consulting, L.L.C.</organization>
       <address>
         <postal>
@@ -40,14 +40,10 @@ please see http://xml.resource.org/authoring/README.html. -->
       </address>
     </author>
 
-    <author fullname="Xufeng Liu" initials="X." surname="Liu" role="editor">
-      <organization>Jabil</organization>
+    <author fullname="Xufeng Liu" initials="X." surname="Liu">
+      <organization>Alef Edge</organization>
       <address>
         <postal>
-          <street>8281 Greensboro Drive, Suite 200</street>
-          <city>McLean</city>
-          <region>VA</region>
-          <code>22102</code>
           <country>United States of America</country>
         </postal>
         <email>xufeng.liu.ietf@gmail.com</email>
@@ -69,33 +65,14 @@ please see http://xml.resource.org/authoring/README.html. -->
     </author>
 
     <author fullname="Ravi Parikh" initials="R." surname="Parikh">
-      <organization>VMware</organization>
+      <organization>Zoox</organization>
       <address>
         <postal>
-          <street>3425 Hillview Avenue</street>
-          <city>Palo Alto</city>
-          <region>CA</region>
-          <code>94304</code>
           <country>United States of America</country>
         </postal>
-        <email>parikhr@vmware.com</email>
+        <email>parikh_ravi@ymail.com</email>
       </address>
     </author>
-
-    <author fullname="Mingui Zhang" initials="M." surname="Zhang">
-      <organization>Huawei Technologies</organization>
-      <address>
-        <postal>
-          <street>No. 156 Beiqing Rd. Haidian District</street>
-          <city>Beijing</city>
-          <code>100095</code>
-          <country>China</country>
-        </postal>
-        <email>zhangmingui@huawei.com</email>
-      </address>
-    </author>
-
-    <date/>
 
     <keyword>Network Management</keyword>
     <keyword>Routing</keyword>
@@ -1874,6 +1851,9 @@ nodes and their sensitivity/vulnerability:
 </section>
 
 <section title="Acknowledgments">
+  <t>
+    Thanks to Mingui Zhang for his contribution to RFC 8347.
+  </t>
   <t>
     Thanks to Nicola Serafini for his suggestion to add effective-priority to
     the virtual router operational state.
