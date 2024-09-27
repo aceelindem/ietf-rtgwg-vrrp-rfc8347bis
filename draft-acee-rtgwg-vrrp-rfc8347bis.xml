@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-acee-rtgwg-vrrp-rfc8347bis-05"
+    docName="draft-acee-rtgwg-vrrp-rfc8347bis-06"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -74,6 +74,18 @@ please see http://xml.resource.org/authoring/README.html. -->
       </address>
     </author>
 
+     <author fullname="Mingui Zhang" initials="M." surname="Zhang">
+       <organization>China Tower</organization>
+       <address>
+         <postal>
+          <street>9 Dongranbeijie Haidian District</street>
+          <city>Beijing</city>
+          <country>China</country>
+         </postal>
+         <email>zhangmg3@chinatowercom.cn</email>
+      </address>
+    </author>
+    
     <keyword>Network Management</keyword>
     <keyword>Routing</keyword>
     <keyword>YANG</keyword>
@@ -1851,9 +1863,6 @@ nodes and their sensitivity/vulnerability:
 </section>
 
 <section title="Acknowledgments">
-  <t>
-    Thanks to Mingui Zhang for his contribution to RFC 8347.
-  </t>
   <t>
     Thanks to Nicola Serafini for his suggestion to add effective-priority to
     the virtual router operational state.
