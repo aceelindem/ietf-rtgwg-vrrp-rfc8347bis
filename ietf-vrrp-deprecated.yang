@@ -60,7 +60,7 @@ module ietf-vrrp {
      described in BCP 14 (RFC 2119) (RFC 8174) when, and only when,
      they appear in all capitals, as shown here.";
 
-  revision 2025-03-03 {
+  revision 2024-09-17 {
     description
       "Initial revision.";
     reference
@@ -123,6 +123,32 @@ module ietf-vrrp {
        active state.";
   } // new-active-reason-type
 
+  typedef new-master-reason-type {
+    status deprecated;
+    type enumeration {
+      enum not-master {
+        description
+          "The virtual router has never transitioned to master
+           state.";
+      }
+      enum priority {
+        description
+          "Priority was higher.";
+      }
+      enum preempted {
+        description
+          "The master was preempted.";
+      }
+      enum no-response {
+        description
+          "Previous master did not respond.";
+      }
+    }
+    description
+      "Indicates why the virtual router has transitioned to
+       master state.";
+  } // new-master-reason-type
+
   /*
    * Identities
    */
@@ -156,6 +182,14 @@ module ietf-vrrp {
     description
       "Indicates that a backup router has a higher priority than
        the current active.";
+  }
+
+  identity vrrp-event-master-timeout {
+    status deprecated;
+    base vrrp-event-type;
+    description
+      "Indicates that the current master has not sent an
+       advertisement within the limit of master-down-interval.";
   }
 
   identity vrrp-event-active-timeout {
@@ -218,6 +252,13 @@ module ietf-vrrp {
     base vrrp-event-type;
     description
       "Indicates that there is a lower-priority VRRP active router.";
+  }
+
+  identity vrrp-event-lower-priority-master {
+    status deprecated;
+    base vrrp-event-type;
+    description
+      "Indicates that there is a lower-priority VRRP master.";
   }
 
   identity vrrp-event-owner-preempt {
@@ -324,7 +365,16 @@ module ietf-vrrp {
        this virtual router.";
   }
 
-  /* vrrp-version identity and its derivatives. */
+  identity master {
+    status deprecated;
+    base vrrp-state-type;
+    description
+      "Indicates that the virtual router is forwarding
+       packets for IP addresses that are associated with
+       this virtual router.";
+  }
+
+ /* vrrp-version identity and its derivatives. */
 
   identity vrrp-version {
     description
@@ -726,6 +776,15 @@ module ietf-vrrp {
         "Time interval for the backup virtual router to declare
          'active down'.";
     }
+    leaf master-down-interval {
+      status deprecated;
+      type uint32;
+      units centiseconds;
+      config false;
+      description
+        "Time interval for the backup virtual router to declare
+         'master down'.";
+    }
     leaf skew-time {
       type uint32;
       units "microseconds";
@@ -749,6 +808,14 @@ module ietf-vrrp {
         "Indicates why the virtual router has transitioned to
          active state.";
     }
+    leaf new-master-reason {
+      status deprecated;
+      type new-master-reason-type;
+      config false;
+      description
+        "Indicates why the virtual router has transitioned to
+         master state.";
+    }
     container statistics {
       config false;
       description
@@ -768,6 +835,13 @@ module ietf-vrrp {
         description
           "The total number of times that this virtual router's
            state has transitioned to 'Active'.";
+      }
+      leaf master-transitions {
+        status deprecated;
+        type yang:counter32;
+        description
+          "The total number of times that this virtual router's
+           state has transitioned to 'master'.";
       }
       leaf advertisement-rcvd {
         type yang:counter64;
@@ -963,6 +1037,27 @@ module ietf-vrrp {
       description
         "Indicates why the virtual router has transitioned to
          active state.";
+    }
+  }
+
+  notification vrrp-new-master-event {
+    status deprecated;
+    description
+      "Notification event for the election of a new VRRP master.";
+    leaf master-ip-address {
+      status deprecated;
+      type inet:ip-address;
+      mandatory true;
+      description
+        "IPv4 or IPv6 address of the new master.";
+    }
+    leaf new-master-reason {
+      status deprecated;
+      type new-master-reason-type;
+      mandatory true;
+      description
+        "Indicates why the virtual router has transitioned to
+         master state.";
     }
   }
 
