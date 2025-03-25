@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-01"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-02"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -85,7 +85,7 @@ please see http://xml.resource.org/authoring/README.html. -->
          <email>zhangmg3@chinatowercom.cn</email>
       </address>
     </author>
-    
+
     <keyword>Network Management</keyword>
     <keyword>Routing</keyword>
     <keyword>YANG</keyword>
@@ -111,7 +111,7 @@ please see http://xml.resource.org/authoring/README.html. -->
  <t>
    This document introduces a YANG data model <xref target="RFC6020"/>
    <xref target="RFC7950"/> for the Virtual Router Redundancy Protocol
-   (VRRP) <xref target="RFC3768"/> <xref target="RFC9568"/>. VRRP provides
+   (VRRP) <xref target="RFC3768"/>, <xref target="RFC9568"/>. VRRP provides
    higher resiliency by specifying an election protocol that dynamically
    assigns responsibility for a virtual router to one of the VRRP routers
    on a LAN.
@@ -127,9 +127,6 @@ please see http://xml.resource.org/authoring/README.html. -->
  <t>
    The VRRP terminology has been updated conform to inclusive language
    guidelines for IETF technologies.
-   The IETF has designated National Institute of Standards and Technology (NIST)
-   "Guidance for NIST Staff on Using Inclusive Language in Documentary Standards"
-   <xref target="NISTIR8366"/> for its inclusive language guidelines.
    This document obsoletes VRRP Version 3 <xref target="RFC8347"/>.
  </t>
 <section title="Terminology">
@@ -702,14 +699,13 @@ module: ietf-vrrp
 <section title="YANG Module">
 <t>
   This module references
-  <xref target="RFC2787"/>,
   <xref target="RFC3768"/>,
   <xref target="RFC9568"/>, and
   <xref target="RFC6527"/>.
 </t>
 
  <figure><artwork>
-<![CDATA[<CODE BEGINS> file "ietf-vrrp@2025-03-03.yang"
+<![CDATA[<CODE BEGINS> file "ietf-vrrp@2025-03-25.yang"
 module ietf-vrrp {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-vrrp";
@@ -752,7 +748,7 @@ module ietf-vrrp {
     "This YANG module defines a model for managing Virtual Router
      Redundancy Protocol (VRRP) versions 2 and 3.
 
-     Copyright (c) 2025 IETF Trust and the persons identified as
+     Copyright (c) 2024 IETF Trust and the persons identified as
      authors of the code.  All rights reserved.
 
      Redistribution and use in source and binary forms, with or
@@ -772,14 +768,12 @@ module ietf-vrrp {
      described in BCP 14 (RFC 2119) (RFC 8174) when, and only when,
      they appear in all capitals, as shown here.";
 
-  revision 2025-03-03 {
+  revision 2025-03-25 {
     description
       "Initial revision.";
     reference
       "RFC XXXX: A YANG Data Model for the Virtual Router Redundancy
                  Protocol (VRRP)
-       RFC 2787: Definitions of Managed Objects for the Virtual
-                 Router Redundancy Protocol
        RFC 3768: Virtual Router Redundancy Protocol (VRRP)
        RFC 9568: Virtual Router Redundancy Protocol (VRRP)
                  Version 3 for IPv4 and IPv6
@@ -1766,7 +1760,7 @@ module ietf-vrrp {
  <t>
    This simply a revision of the ietf-vrrp.yang model and no
    new IANA allocations are required.
- </t>  
+ </t>
 </section>
 
 <section title="Security Considerations">
@@ -1777,7 +1771,7 @@ as NETCONF <xref target="RFC6241"/> or RESTCONF <xref target="RFC8040"/>.
 The lowest NETCONF layer is the secure transport layer, and the
 mandatory-to-implement secure transport is Secure Shell (SSH)
 <xref target="RFC6242"/>. The lowest RESTCONF layer is HTTPS, and the
-mandatory-to-implement secure transport is TLS <xref target="RFC5246"/>.
+mandatory-to-implement secure transport is TLS <xref target="RFC8446"/>.
 </t>
 
 <t>
@@ -1843,6 +1837,9 @@ nodes and their sensitivity/vulnerability:
     Thanks to Nicola Serafini for his suggestion to add effective-priority to
     the virtual router operational state.
   </t>
+  <t>
+    Thanks to Carlos Pignataro for review and comments.
+  </t>
 </section>
 </middle>
 
@@ -1850,8 +1847,7 @@ nodes and their sensitivity/vulnerability:
 
 <references title="Normative References">
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.2119.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.2787.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.5246.xml"/>
+    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.3768.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6020.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6241.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6242.xml"/>
@@ -1865,20 +1861,11 @@ nodes and their sensitivity/vulnerability:
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8343.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8344.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8347.xml"/>
+    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8446.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.9568.xml"/>
-    <reference anchor="NISTIR8366" target="https://doi.org/10.6028/NIST.IR.8366">
-      <front>
-        <title>Guidance for NIST Staff on Using Inclusive Language in Documentary Standards,
-        National Institute of Standards and Technology (NIST) Interagency or Internal Report 8366</title>
-        <author surname="NIST"/>
-        <date year="2021" month="April"/>
-      </front>
-      <seriesInfo name="NISTIR" value="8366"/>
-    </reference>
-  </references>
+</references>
 
   <references title="Informative References">
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.3768.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.7224.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.7951.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8340.xml"/>

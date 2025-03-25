@@ -60,14 +60,12 @@ module ietf-vrrp {
      described in BCP 14 (RFC 2119) (RFC 8174) when, and only when,
      they appear in all capitals, as shown here.";
 
-  revision 2025-03-03 {
+  revision 2025-03-25 {
     description
       "Initial revision.";
     reference
       "RFC XXXX: A YANG Data Model for the Virtual Router Redundancy
                  Protocol (VRRP)
-       RFC 2787: Definitions of Managed Objects for the Virtual
-                 Router Redundancy Protocol
        RFC 3768: Virtual Router Redundancy Protocol (VRRP)
        RFC 9568: Virtual Router Redundancy Protocol (VRRP)
                  Version 3 for IPv4 and IPv6
