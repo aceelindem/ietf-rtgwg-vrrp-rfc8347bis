@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-03"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-04"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -126,8 +126,10 @@ please see http://xml.resource.org/authoring/README.html. -->
 
  <t>
    The VRRP terminology has been updated conform to inclusive language
-   guidelines for IETF technologies as specified in
-   https://www.rfc-editor.org/styleguide/part2/#inclusive_language.
+   guidelines for IETF technologies.
+   The IETF has designated National Institute of Standards and Technology (NIST)
+  "Guidance for NIST Staff on Using Inclusive Language in Documentary Standards"
+   <xref target="NISTIR8366"/> for its inclusive language guidelines.
    This document obsoletes VRRP Version 3 <xref target="RFC8347"/>.
  </t>
 <section title="Terminology">
@@ -1864,6 +1866,15 @@ nodes and their sensitivity/vulnerability:
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8347.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8446.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.9568.xml"/>
+    <reference anchor="NISTIR8366" target="https://web.archive.org/web/20250203031433/https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8366.pdf">
+      <front>
+        <title>Guidance for NIST Staff on Using Inclusive Language in Documentary Standards,
+        National Institute of Standards and Technology (NIST) Interagency or Internal Report 8366</title>
+        <author surname="NIST"/>
+        <date year="2021" month="April"/>
+      </front>
+      <seriesInfo name="NISTIR" value="8366"/>
+    </reference>
 </references>
 
   <references title="Informative References">
