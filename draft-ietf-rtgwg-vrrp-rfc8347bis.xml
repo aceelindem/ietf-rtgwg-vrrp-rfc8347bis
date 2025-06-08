@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-04"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-05"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -27,7 +27,7 @@ please see http://xml.resource.org/authoring/README.html. -->
     </title>
 
     <author fullname="Acee Lindem" initials="A." surname="Lindem"  role="editor">
-      <organization>LabN Consulting, L.L.C.</organization>
+      <organization>Arrcus, Inc.</organization>
       <address>
         <postal>
           <street>301 Midenhall Way</street>
@@ -127,19 +127,116 @@ please see http://xml.resource.org/authoring/README.html. -->
  <t>
    The VRRP terminology has been updated conform to inclusive language
    guidelines for IETF technologies.
-   The IETF has designated National Institute of Standards and Technology (NIST)
-  "Guidance for NIST Staff on Using Inclusive Language in Documentary Standards"
-   <xref target="NISTIR8366"/> for its inclusive language guidelines.
    This document obsoletes VRRP Version 3 <xref target="RFC8347"/>.
  </t>
+ <section anchor="changes" title="Changes from RF8347">
+   <t>
+     The following changes have been made consistent with IETF inclusive
+     language guidelines:
+   </t>
+   <ul spacing="normal">
+     <li>
+       The typedef "typedef new-master-reason-type" was changed to
+       "typedef new-active-reason-type". The associated descriptive text
+       was also updated.
+     </li>
+     <li>
+       The enum "enum not-master" was changed to "enum not-active".
+       The associated descriptive text was also updated.
+     </li>
+     <li>
+       The descriptive text for enum "enum preempted" was updated.
+     </li>
+     <li>
+       The descriptive text for enum "enum no-response" was updated.
+     </li>
+     <li>
+       The identity "identity vrrp-event-master-timeout" was changed to
+       "identity vrrp-event-active-timeout". The associated descriptive text
+       was also updated.
+     </li>
+     <li>
+       The identity "identity vrrp-event-lower-priority-master" was changed to
+       "identity vrrp-event-lower-priority-active". The associated descriptive text
+       was also updated.
+     </li>
+     <li>
+       The descriptive text for "identity vrrp-event-higher-priority-backup"
+       was updated.
+     </li>
+     <li>
+       The descriptive text for "identity vrrp-event-owner-prempt" was updated.
+     </li>
+     <li>
+       The descriptive text for "identity backup" was updated.
+     </li>
+     <li>
+       The identity "identity master" was changed to "identity active".
+       The associated descriptive text was also updated.
+     </li>
+     <li>
+       The descriptive text for container "container preempt" was updated.
+     </li>
+     <li>
+       The descriptive text for leaf "leaf hold-time" was updated.
+     </li>
+     <li>
+       The descriptive text for leaf "leaf accept-mode" was updated.
+     </li>
+     <li>
+       The leaf "leaf master-down-interval" was changed to
+       "leaf active-down-interval". The associated descriptive text was also updated.
+     </li>
+     <li>
+       The leaf "leaf new-master-reason" was changed to "leaf new-active-reason".
+       The associated descriptive text was also updated.
+     </li>
+     <li>
+       The leaf "leaf new-master-reason" was changed to "leaf new-active-reason".
+       The associated descriptive text was also updated.
+     </li>
+     <li>
+       The leaf "leaf master-transitions" was changed to
+       "leaf active-transitions".
+       The associated descriptive text was also updated.
+     </li>
+     <li>
+       The notification "notification vrrp-new-master-event" was changed to
+       "notification vrrp-new-active-event". The associated descriptive text
+       was also updated.
+     </li>
+     <li>
+       The notification leaf "master-ip-address" was changed to "active-ip-address".
+       The associated descriptive text was also updated.
+     </li>
+     <li>
+       The notification leaf "leaf new-master-reason" was changed to
+       "leaf new-active-reason". The associated descriptive text was also updated.
+     </li>
+   </ul>
+   <t>
+     The following additions have been made to the ietf-vrrp module:
+   </t>
+   <ul>
+     <li>
+       The leaf "leaf effective-priority" was add to the grouping
+       "grouping vrrp-state-attributes" to reflect the effective priority due
+       to the VRRP router owning the address or any local policy adjusting the
+       priority.
+     </li>
+   </ul>
+
+ </section>
 <section title="Terminology">
-  <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL",
-  "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",
-  "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document
-  are to be interpreted as described in BCP 14
-  <xref format="default" pageno="false" target="RFC2119"/>
-  <xref format="default" pageno="false" target="RFC8174"/> when,
-  and only when, they appear in all capitals, as shown here.</t>
+  <t>
+    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL",
+    "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",
+    "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document
+    are to be interpreted as described in BCP 14
+    <xref format="default" pageno="false" target="RFC2119"/>
+    <xref format="default" pageno="false" target="RFC8174"/> when,
+    and only when, they appear in all capitals, as shown here.
+  </t>
 
   <t>
   The following terms are defined in  <xref target="RFC7950"/> and
@@ -716,15 +813,23 @@ module ietf-vrrp {
 
   import ietf-inet-types {
     prefix inet;
+    reference
+      "RFC 6991: Common YANG Data Types, Section 4";
   }
   import ietf-yang-types {
     prefix yang;
+    reference
+      "RFC 6991: Common YANG Data Types, Section 3";
   }
   import ietf-interfaces {
     prefix if;
+    reference
+      "RFC 8343: A YANG Data Model for Interface Management";
   }
   import ietf-ip {
     prefix ip;
+    reference
+      "RFC 8344: A YANG Data Model for IP Management";
   }
 
   organization
@@ -751,7 +856,7 @@ module ietf-vrrp {
     "This YANG module defines a model for managing Virtual Router
      Redundancy Protocol (VRRP) versions 2 and 3.
 
-     Copyright (c) 2024 IETF Trust and the persons identified as
+     Copyright (c) 2025 IETF Trust and the persons identified as
      authors of the code.  All rights reserved.
 
      Redistribution and use in source and binary forms, with or
@@ -761,27 +866,36 @@ module ietf-vrrp {
      Relating to IETF Documents
      (https://trustee.ietf.org/license-info).
 
-     This version of this YANG module is part of RFC XXXX
-     (https://www.rfc-editor.org/info/rfcXXXX); see the RFC itself
-     for full legal notices.
+     All revisions of IETF and IANA published modules can be found
+     at the YANG Parameters registry group
+     (https://www.iana.org/assignments/yang-parameters).
 
      The key words 'MUST', 'MUST NOT', 'REQUIRED', 'SHALL', 'SHALL
      NOT', 'SHOULD', 'SHOULD NOT', 'RECOMMENDED', 'NOT RECOMMENDED',
      'MAY', and 'OPTIONAL' in this document are to be interpreted as
      described in BCP 14 (RFC 2119) (RFC 8174) when, and only when,
-     they appear in all capitals, as shown here.";
+     they appear in all capitals, as shown here.
 
-  revision 2025-03-25 {
+     This version of this YANG module is part of RFC XXXX; see
+     the RFC itself for full legal notices.";
+
+  revision 2025-06-09 {
+    description
+      "This revision includes the following changes:
+       - Update some identifiers and descriptions to conform
+         to the changes in RFC 9586
+       - Add a new effective-priority leaf
+       - Update some reference statements";
+    reference
+      "RFC XXXX: A YANG Data Model for the Virtual Router Redundancy
+                 Protocol (VRRP)";
+  }
+  revision 2018-03-13 {
     description
       "Initial revision.";
     reference
-      "RFC XXXX: A YANG Data Model for the Virtual Router Redundancy
-                 Protocol (VRRP)
-       RFC 3768: Virtual Router Redundancy Protocol (VRRP)
-       RFC 9568: Virtual Router Redundancy Protocol (VRRP)
-                 Version 3 for IPv4 and IPv6
-       RFC 6527: Definitions of Managed Objects for the Virtual
-                 Router Redundancy Protocol Version 3 (VRRPv3)";
+      "RFC 8347: A YANG Data Model for the Virtual Router Redundancy
+                 Protocol (VRRP)";
   }
 
   /*
@@ -829,7 +943,10 @@ module ietf-vrrp {
     }
     description
       "Indicates why the virtual router has transitioned to
-       active state.";
+       active state.
+
+       The identifier of this typedef is changed to to reflect
+       the updated terminology used in RFC 9568.";
   } // new-active-reason-type
 
   /*
@@ -871,7 +988,10 @@ module ietf-vrrp {
     base vrrp-event-type;
     description
       "Indicates that the current active virtual router has not sent
-       an advertisement within the limit of active-down-interval.";
+       an advertisement within the limit of active-down-interval.
+
+       The identity is changed to to reflect the updated terminology
+       used in RFC 9568.";
   }
 
   identity vrrp-event-interface-up {
@@ -926,7 +1046,10 @@ module ietf-vrrp {
   identity vrrp-event-lower-priority-active {
     base vrrp-event-type;
     description
-      "Indicates that there is a lower-priority VRRP active router.";
+      "Indicates that there is a lower-priority VRRP active router.
+
+       The identity is changed to to reflect the updated terminology
+       used in RFC 9568.";
   }
 
   identity vrrp-event-owner-preempt {
@@ -1030,7 +1153,10 @@ module ietf-vrrp {
     description
       "Indicates that the virtual router is forwarding
        packets for IP addresses that are associated with
-       this virtual router.";
+       this virtual router.
+
+       The identity is changed to to reflect the updated terminology
+       used in RFC 9568.";
   }
 
   /* vrrp-version identity and its derivatives. */
@@ -1268,7 +1394,7 @@ module ietf-vrrp {
             "An IPv4 address associated with a virtual router.";
           reference
             "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
-                       Version 3 for IPv4 and IPv6.  Section 1.2";
+                       Version 3 for IPv4 and IPv6,  Section 1.3";
         }
       } // virtual-ipv4-address
     } // virtual-ipv4-addresses
@@ -1285,7 +1411,7 @@ module ietf-vrrp {
       units "centiseconds";
       default "100";
       description
-        "Configures the interval that VRRPv3 advertisements
+        "Includes the interval that VRRPv3 advertisements
          are sent from the specified interface.";
     }
     container track {
@@ -1381,7 +1507,7 @@ module ietf-vrrp {
             "An IPv6 address associated with a virtual router.";
           reference
             "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
-                       Version 3 for IPv4 and IPv6.  Section 1.3";
+                       Version 3 for IPv4 and IPv6, Section 1.4";
         }
       } // virtual-ipv6-address
     } // virtual-ipv6-addresses
@@ -1433,7 +1559,10 @@ module ietf-vrrp {
       config false;
       description
         "Time interval for the backup virtual router to declare
-         'active down'.";
+         'active down'.
+
+         The identifier of this leaf is changed to to reflect
+         the updated terminology used in RFC 9568.";
     }
     leaf skew-time {
       type uint32;
@@ -1456,7 +1585,10 @@ module ietf-vrrp {
       config false;
       description
         "Indicates why the virtual router has transitioned to
-         active state.";
+         active state.
+
+         The identifier of this leaf is changed to to reflect
+         the updated terminology used in RFC 9568.";
     }
     container statistics {
       config false;
@@ -1476,7 +1608,10 @@ module ietf-vrrp {
         type yang:counter32;
         description
           "The total number of times that this virtual router's
-           state has transitioned to 'Active'.";
+           state has transitioned to 'Active'.
+
+           The identifier of this leaf is changed to to reflect
+           the updated terminology used in RFC 9568.";
       }
       leaf advertisement-rcvd {
         type yang:counter64;
@@ -1597,7 +1732,7 @@ module ietf-vrrp {
            not equal to 255.";
         reference
           "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
-                     Version 3 for IPv4 and IPv6.
+                     Version 3 for IPv4 and IPv6,
                      Sections 5.1.1.3 and 5.1.2.3";
       }
     } // statistics
@@ -1659,19 +1794,28 @@ module ietf-vrrp {
   notification vrrp-new-active-event {
     description
       "Notification event for the election of a new VRRP
-       active router.";
+       active router.
+
+       The identifier of the notification is changed to
+       reflect the updated terminology used in RFC 9568.";
     leaf active-ip-address {
       type inet:ip-address;
       mandatory true;
       description
-        "IPv4 or IPv6 address of the new VRRP active router.";
+        "IPv4 or IPv6 address of the new VRRP active router.
+
+         The identifier of the leaf is changed to
+         reflect the updated terminology used in RFC 9568.";
     }
     leaf new-active-reason {
       type new-active-reason-type;
       mandatory true;
       description
         "Indicates why the virtual router has transitioned to
-         active state.";
+         active state.
+
+         The identifier of the leaf is changed to
+         reflect the updated terminology used in RFC 9568.";
     }
   }
 
@@ -1760,38 +1904,77 @@ module ietf-vrrp {
 </section>
 
 <section title="IANA Considerations">
- <t>
-   This simply a revision of the ietf-vrrp.yang model and no
-   new IANA allocations are required.
+  <t>
+     IANA is requested to update the following registration in the "ns"
+     registry within the "IETF XML Registry" group [RFC3688] to
+     reference this document:
  </t>
+ <artwork name="" type="" align="left" alt=""><![CDATA[
+      URI: urn:ietf:params:xml:ns:yang:ietf-vrrp
+      Registrant Contact: The IESG.
+      XML: N/A, the requested URI is an XML namespace.
+      ]]>
+ </artwork>
+ <t>
+   IANA is requested to register the following YANG module in the "YANG
+   Module Names" registry [RFC6020] within the "YANG Parameters"
+   registry group.
+ </t>
+ <artwork name="" type="" align="left" alt=""><![CDATA[
+      Name: ietf-vrrp
+      Maintained by IANA?  N
+      Namespace: urn:ietf:params:xml:ns:yang:ietf-vrrp
+      Prefix: vrrp
+      Reference: RFC XXXX
+  ]]>
+ </artwork>
 </section>
 
+<section title="Operations and Managment Considerations">
+  <t>
+    This document defines the YANG model <xref target="RFC7950"/>
+    for the VRRP protocol <xref target="RFC9568"/>.
+    Hence, the entire document can be considered devoted to
+    operations and management.
+  </t>
+  <section title="Migration Path">
+  <t>
+    The changes to use inclusive language <xref target="changes"/> are
+    non-backward compatibly based on the rules in <xref target="RFC7950"/>.
+    However, there are no exant implementations of the ietf-vrrp YANG module
+    based on numerour implementation polls. Hence, it was agreed upon to
+    change the YANG data nodes with non-inclusive language in a single
+    iteration rather than going through the deprecation, obsoletion, and
+    removal cycle.
+  </t>
+  </section>
+</section>
 <section title="Security Considerations">
 <t>
-The YANG module specified in this document defines a schema for data
-that is designed to be accessed via network management protocols such
-as NETCONF <xref target="RFC6241"/> or RESTCONF <xref target="RFC8040"/>.
-The lowest NETCONF layer is the secure transport layer, and the
-mandatory-to-implement secure transport is Secure Shell (SSH)
-<xref target="RFC6242"/>. The lowest RESTCONF layer is HTTPS, and the
-mandatory-to-implement secure transport is TLS <xref target="RFC8446"/>.
+   The ietf-vrrp YANG module defines a data model that is
+   designed to be accessed via YANG-based management protocols, such as
+   NETCONF <xref target="RFC6241"/> and RESTCONF <xref target="RFC8040"/>.
+   These protocols have to use a secure transport layer (e.g., SSH
+   <xref target="RFC4252"/>, TLS <xref target="RFC8446"/>, and
+   QUIC <xref target="RFC9000"/>) and have to use mutual authentication.
 </t>
 
 <t>
-The NETCONF access control model <xref target="RFC8341"/> provides the
-means to restrict access for particular NETCONF or RESTCONF users to a
-preconfigured subset of all available NETCONF or RESTCONF protocol
-operations and content.
+    The Network Configuration Access Control Model (NACM) <xref target="RFC8341"/>
+    provides the means to restrict access for particular NETCONF or
+    RESTCONF users to a preconfigured subset of all available NETCONF or
+    RESTCONF protocol operations and content.
 </t>
 
 <t>
-There are a number of data nodes defined in this YANG module that are
-writable/creatable/deletable (i.e., config true, which is the
-default).  These data nodes may be considered sensitive or vulnerable
-in some network environments.  Write operations (e.g., edit-config) to
-these data nodes without proper protection can have a negative effect
-on network operations.  These are the subtrees and data nodes and
-their sensitivity/vulnerability:
+   There are a number of data nodes defined in this YANG module that are
+   writable/creatable/deletable (i.e., "config true", which is the
+   default).  All writable data nodes are likely to be reasonably
+   sensitive or vulnerable in some network environments.  Write
+   operations (e.g., edit-config) and delete operations to these data
+   nodes without proper protection or authentication can have a negative
+   effect on network operations.  The following subtrees and data nodes
+   have particular sensitivities/vulnerabilities:
 </t>
 
  <t>
@@ -1810,11 +1993,12 @@ their sensitivity/vulnerability:
  </t>
 
 <t>
-Some of the readable data nodes in this YANG module may be considered
-sensitive or vulnerable in some network environments.  It is thus
-important to control read access (e.g., via get, get-config, or
-notification) to these data nodes.  These are the subtrees and data
-nodes and their sensitivity/vulnerability:
+    Some of the readable data nodes in this YANG module may be considered
+    sensitive or vulnerable in some network environments.  It is thus
+    important to control read access (e.g., via get, get-config, or
+    notification) to these data nodes. Specifically, the following
+    subtrees and data nodes have particular sensitivities/
+    vulnerabilities:
 </t>
 
  <t>
@@ -1841,6 +2025,9 @@ nodes and their sensitivity/vulnerability:
     the virtual router operational state.
   </t>
   <t>
+    Thanks to Med Boucadair for an extensive review and suggested edits.
+  </t>
+  <t>
     Thanks to Carlos Pignataro for review and comments.
   </t>
 </section>
@@ -1851,39 +2038,31 @@ nodes and their sensitivity/vulnerability:
 <references title="Normative References">
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.2119.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.3768.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6020.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6241.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6242.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6527.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6991.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.7950.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8040.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8174.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8341.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8342.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8343.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8344.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8347.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8446.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.9568.xml"/>
-    <reference anchor="NISTIR8366" target="https://web.archive.org/web/20250203031433/https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8366.pdf">
-      <front>
-        <title>Guidance for NIST Staff on Using Inclusive Language in Documentary Standards,
-        National Institute of Standards and Technology (NIST) Interagency or Internal Report 8366</title>
-        <author surname="NIST"/>
-        <date year="2021" month="April"/>
-      </front>
-      <seriesInfo name="NISTIR" value="8366"/>
-    </reference>
 </references>
 
   <references title="Informative References">
+    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.4252.xml"/>
+    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6020.xml"/>
+    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6241.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.7224.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.7951.xml"/>
+    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8040.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8340.xml"/>
+    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8446.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8639.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8641.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8407.xml"/>
+    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.9000.xml"/>
 </references>
 
 <section title="Data Tree Example">
