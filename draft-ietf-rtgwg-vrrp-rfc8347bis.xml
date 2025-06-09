@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-05"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-06"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -558,7 +558,7 @@ module: ietf-vrrp
    Architecture (NMDA) <xref target="RFC8342"/>.
    The operational state data is combined with the associated
    configuration data in the same hierarchy
-   <xref target="RFC8407"/>. When protocol states
+   <xref target="I-D.ietf-netmod-rfc8407bis"/>. When protocol states
    are retrieved from the NMDA operational state datastore, the
    returned states cover all "config true" (rw) and "config false"
    (ro) nodes defined in the schema.
@@ -805,7 +805,7 @@ module: ietf-vrrp
 </t>
 
  <figure><artwork>
-<![CDATA[<CODE BEGINS> file "ietf-vrrp@2025-03-25.yang"
+<![CDATA[<CODE BEGINS> file "ietf-vrrp@2025-06-09.yang"
 module ietf-vrrp {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-vrrp";
@@ -2061,9 +2061,9 @@ module ietf-vrrp {
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8446.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8639.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8641.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8407.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.9000.xml"/>
-</references>
+    <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-netmod-rfc8407bis.xml"/>
+  </references>
 
 <section title="Data Tree Example">
  <t>
