@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-06"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-07"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -129,89 +129,87 @@ please see http://xml.resource.org/authoring/README.html. -->
    guidelines for IETF technologies.
    This document obsoletes VRRP Version 3 <xref target="RFC8347"/>.
  </t>
- <section anchor="changes" title="Changes from RF8347">
+ <section anchor="changes" title="Changes from RFC 8347">
    <t>
      The following changes have been made consistent with IETF inclusive
      language guidelines:
    </t>
    <ul spacing="normal">
      <li>
-       The typedef "typedef new-master-reason-type" was changed to
-       "typedef new-active-reason-type". The associated descriptive text
+       The typedef "new-master-reason-type" was changed to
+       "new-active-reason-type". The associated descriptive text
        was also updated.
      </li>
      <li>
-       The enum "enum not-master" was changed to "enum not-active".
+       The enum "not-master" was changed to "not-active".
        The associated descriptive text was also updated.
      </li>
      <li>
-       The descriptive text for enum "enum preempted" was updated.
+       The descriptive text for enum "preempted" was updated.
      </li>
      <li>
-       The descriptive text for enum "enum no-response" was updated.
+       The descriptive text for enum "no-response" was updated.
      </li>
      <li>
-       The identity "identity vrrp-event-master-timeout" was changed to
-       "identity vrrp-event-active-timeout". The associated descriptive text
+       The identity "vrrp-event-master-timeout" was changed to
+       "vrrp-event-active-timeout". The associated descriptive text
        was also updated.
      </li>
      <li>
-       The identity "identity vrrp-event-lower-priority-master" was changed to
-       "identity vrrp-event-lower-priority-active". The associated descriptive text
+       The identity "vrrp-event-lower-priority-master" was changed to
+       "vrrp-event-lower-priority-active". The associated descriptive text
        was also updated.
      </li>
      <li>
-       The descriptive text for "identity vrrp-event-higher-priority-backup"
+       The descriptive text for identity "vrrp-event-higher-priority-backup"
        was updated.
      </li>
      <li>
-       The descriptive text for "identity vrrp-event-owner-prempt" was updated.
+       The descriptive text for identify "vrrp-event-owner-prempt" was updated.
      </li>
      <li>
-       The descriptive text for "identity backup" was updated.
+       The descriptive text for identity "backup" was updated.
      </li>
      <li>
-       The identity "identity master" was changed to "identity active".
+       The identity "master" was changed to "active".
        The associated descriptive text was also updated.
      </li>
      <li>
-       The descriptive text for container "container preempt" was updated.
+       The descriptive text for container "preempt" was updated.
      </li>
      <li>
-       The descriptive text for leaf "leaf hold-time" was updated.
+       The descriptive text for leaf "hold-time" was updated.
      </li>
      <li>
-       The descriptive text for leaf "leaf accept-mode" was updated.
+       The descriptive text for leaf "accept-mode" was updated.
      </li>
      <li>
-       The leaf "leaf master-down-interval" was changed to
-       "leaf active-down-interval". The associated descriptive text was also updated.
+       The leaf "master-down-interval" was changed to
+       "active-down-interval". The associated descriptive text was also updated.
      </li>
      <li>
-       The leaf "leaf new-master-reason" was changed to "leaf new-active-reason".
+       The leaf "new-master-reason" was changed to "new-active-reason".
        The associated descriptive text was also updated.
      </li>
      <li>
-       The leaf "leaf new-master-reason" was changed to "leaf new-active-reason".
+       The leaf "new-master-reason" was changed to "new-active-reason".
        The associated descriptive text was also updated.
      </li>
      <li>
-       The leaf "leaf master-transitions" was changed to
-       "leaf active-transitions".
+       The leaf "master-transitions" was changed to "active-transitions".
        The associated descriptive text was also updated.
      </li>
      <li>
-       The notification "notification vrrp-new-master-event" was changed to
-       "notification vrrp-new-active-event". The associated descriptive text
-       was also updated.
+       The notification "vrrp-new-master-event" was changed to
+       "vrrp-new-active-event". The associated descriptive text was also updated.
      </li>
      <li>
        The notification leaf "master-ip-address" was changed to "active-ip-address".
        The associated descriptive text was also updated.
      </li>
      <li>
-       The notification leaf "leaf new-master-reason" was changed to
-       "leaf new-active-reason". The associated descriptive text was also updated.
+       The notification leaf "new-master-reason" was changed to
+       "new-active-reason". The associated descriptive text was also updated.
      </li>
    </ul>
    <t>
@@ -219,7 +217,7 @@ please see http://xml.resource.org/authoring/README.html. -->
    </t>
    <ul>
      <li>
-       The leaf "leaf effective-priority" was add to the grouping
+       The leaf "effective-priority" was add to the grouping
        "grouping vrrp-state-attributes" to reflect the effective priority due
        to the VRRP router owning the address or any local policy adjusting the
        priority.
@@ -363,27 +361,27 @@ please see http://xml.resource.org/authoring/README.html. -->
  </artwork></figure>
 
  <t>
-   In the above figure, a tree node without a prefix is from the model
-   "ietf-interfaces". A tree node with prefix "ip:" is from the model
-   "ietf-ip". A tree node with prefix "vrrp:" is from the VRRP model
+   In Figure 1, a tree node without a prefix is from the model
+   "ietf-interfaces". A tree node with prefix "ip" is from the model
+   "ietf-ip". A tree node with prefix "vrrp" is from the VRRP model
    specified in this document.
  </t>
 
  <t>
-   The "vrrp" container contains a list of vrrp-instance nodes,
+   The "vrrp" container contains a list of "vrrp-instance" nodes,
    which are instantiated under an interface for a specified address
    family (IPv4 or IPv6).
  </t>
 
  <t>
-   Each vrrp-instance node represents a VRRP router state machine, as
+   Each "vrrp-instance" node represents a VRRP router state machine, as
    described in Section 6.4 of <xref target="RFC9568"/>, providing
    the configuration and state information for the election process of a
    virtual router.  The IP addresses on the augmented interface are
    the real addresses through which the VRRP router operates. The
    IPv4 or IPv6 address or addresses associated with a virtual router
    (described in Section 1 of <xref target="RFC9568"/>) are modeled
-   as a list of IPv4 or IPv6 addresses under the vrrp-instance.
+   as a list of IPv4 or IPv6 addresses under the "vrrp-instance".
  </t>
 </section>
 
