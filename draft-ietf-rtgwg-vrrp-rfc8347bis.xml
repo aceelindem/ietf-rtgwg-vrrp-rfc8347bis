@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-07"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-08"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -337,7 +337,7 @@ please see http://xml.resource.org/authoring/README.html. -->
    as follows:
  </t>
 
- <figure><artwork>
+ <figure anchor="fig-1"><artwork>
 <![CDATA[module: ietf-interfaces
    +--rw interfaces
       +--rw interface* [name]
@@ -361,7 +361,7 @@ please see http://xml.resource.org/authoring/README.html. -->
  </artwork></figure>
 
  <t>
-   In Figure 1, a tree node without a prefix is from the model
+   In <xref target="fig-1"/>, a tree node without a prefix is from the model
    "ietf-interfaces". A tree node with prefix "ip" is from the model
    "ietf-ip". A tree node with prefix "vrrp" is from the VRRP model
    specified in this document.
@@ -387,10 +387,11 @@ please see http://xml.resource.org/authoring/README.html. -->
 
 <section title="Protocol Configuration">
  <t>
-   The model structure for the protocol configuration is as shown below:
+   The model structure for the protocol configuration is depicted in
+   <xref target="fig-2"/>.
  </t>
 
- <figure><artwork>
+ <figure anchor="fig-2"><artwork>
 <![CDATA[  augment /if:interfaces/if:interface/ip:ipv4:
     +--rw vrrp
        +--rw vrrp-instance* [vrid]
@@ -429,7 +430,7 @@ please see http://xml.resource.org/authoring/README.html. -->
  </artwork></figure>
 
  <t>
-   The model allows the following protocol entities to be configured:
+   The model allows the following protocol entities to be managed:
  </t>
    <ul spacing="normal">
      <li>
@@ -449,10 +450,11 @@ please see http://xml.resource.org/authoring/README.html. -->
 
 <section title="Protocol States">
  <t>
-  The model structure for the protocol states is as shown below:
+   The model structure for the protocol states is depicted
+   in <xref target="fig-3"/>.
  </t>
 
- <figure><artwork>
+ <figure anchor="fig-3"><artwork>
 <![CDATA[
 module: ietf-vrrp
     +--ro vrrp
@@ -587,10 +589,10 @@ module: ietf-vrrp
 
 <section title="Notifications">
  <t>
-   This model defines the following VRRP-specific notifications:
+   This model defines the following VRRP-specific notifications (<xref target="fig-4"/>):
  </t>
 
- <figure><artwork>
+ <figure anchor="fig-4"><artwork>
 <![CDATA[notifications:
    +---n vrrp-new-active-event
    |  +--ro active-ip-address    inet:ip-address
@@ -615,20 +617,20 @@ module: ietf-vrrp
  </t>
 
  <dl newline="false" spacing="normal" indent="24">
-   <dt>vrrp-new-active-event</dt>
+   <dt>"vrrp-new-active-event"</dt>
    <dd>
      <t>
        VRRP new active event, indicating that a new active virtual router has been elected.
      </t>
    </dd>
-   <dt>vrrp-protocol-error-event</dt>
+   <dt>"vrrp-protocol-error-event"</dt>
    <dd>
      <t>
       VRRP protocol error event for a message that fails to reach a VRRP
       instance to be processed.
      </t>
    </dd>
-   <dt>vrrp-virtual-router-error-event</dt>
+   <dt>"vrrp-virtual-router-error-event"</dt>
    <dd>
      <t>
        VRRP virtual router error event for a message processed on a VRRP
@@ -662,10 +664,10 @@ module: ietf-vrrp
 <section title="Tree Structure">
  <t>
    The VRRP YANG data model defined in this document has the
-   following tree structure:
+   following tree structure (xref target="fig-5">:
  </t>
 
- <figure><artwork>
+ <figure anchor="fig-5"><artwork>
 <![CDATA[module: ietf-vrrp
     +--ro vrrp
        +--ro virtual-routers?   uint32
@@ -802,7 +804,7 @@ module: ietf-vrrp
   <xref target="RFC6527"/>.
 </t>
 
- <figure><artwork>
+ <figure suppress-title="true"><artwork>
 <![CDATA[<CODE BEGINS> file "ietf-vrrp@2025-06-09.yang"
 module ietf-vrrp {
   yang-version 1.1;
@@ -1928,19 +1930,19 @@ module ietf-vrrp {
  </artwork>
 </section>
 
-<section title="Operations and Managment Considerations">
+<section title="Operations and Management Considerations">
   <t>
-    This document defines the YANG model <xref target="RFC7950"/>
+    This document defines  YANG data model <xref target="RFC7950"/>
     for the VRRP protocol <xref target="RFC9568"/>.
     Hence, the entire document can be considered devoted to
     operations and management.
   </t>
   <section title="Migration Path">
   <t>
-    The changes to use inclusive language <xref target="changes"/> are
+    The changes to use inclusive language (<xref target="changes"/>) are
     non-backward compatibly based on the rules in <xref target="RFC7950"/>.
-    However, there are no exant implementations of the ietf-vrrp YANG module
-    based on numerour implementation polls. Hence, it was agreed upon to
+    However, there are no existing implementations of the ietf-vrrp YANG module
+    based on numerous implementation polls. Hence, it was agreed upon to
     change the YANG data nodes with non-inclusive language in a single
     iteration rather than going through the deprecation, obsoletion, and
     removal cycle.
@@ -1949,12 +1951,16 @@ module ietf-vrrp {
 </section>
 <section title="Security Considerations">
 <t>
-   The ietf-vrrp YANG module defines a data model that is
+  This section is modeled after the template described in Section 3.7
+  of <xref target="I-D.ietf-netmod-rfc8407bis"/>.
+</t>
+<t>
+   The "ietf-vrrp" YANG module defines a data model that is
    designed to be accessed via YANG-based management protocols, such as
    NETCONF <xref target="RFC6241"/> and RESTCONF <xref target="RFC8040"/>.
-   These protocols have to use a secure transport layer (e.g., SSH
-   <xref target="RFC4252"/>, TLS <xref target="RFC8446"/>, and
-   QUIC <xref target="RFC9000"/>) and have to use mutual authentication.
+   These YANG-based protocols (1) have to use a secure transport layer
+   (e.g., SSH <xref target="RFC4252"/>, TLS <xref target="RFC8446"/>, and
+   QUIC <xref target="RFC9000"/>) and (2) have to use mutual authentication.
 </t>
 
 <t>
@@ -2071,7 +2077,7 @@ module ietf-vrrp {
    defined in <xref target="RFC7224"/>.)
  </t>
 
- <figure><artwork>
+ <figure anchor="fig-7"><artwork>
               Virtual router IP address: fe80::1
            +-----------------+        +-----------------+
            |                 |        |                 |
@@ -2095,7 +2101,7 @@ module ietf-vrrp {
    could be as follows:
  </t>
 
- <figure><artwork>
+ <figure anchor="fig-8"><artwork>
 {
   "ietf-interfaces:interfaces": {
     "interface": [
@@ -2119,7 +2125,7 @@ module ietf-vrrp {
             "vrrp-instance": [
               {
                 "vrid": 1,
-                "version": "vrrp-v3",
+                "version": "ietf-vrrp:vrrp-v3",
                 "priority": 200,
                 "advertise-interval-centi-sec": 50,
                 "virtual-ipv6-addresses": {
@@ -2142,7 +2148,7 @@ module ietf-vrrp {
    could be as follows:
  </t>
 
- <figure><artwork>
+ <figure anchor="fig-9"><artwork>
 {
   "ietf-interfaces:interfaces": {
     "interface": [
@@ -2176,7 +2182,7 @@ module ietf-vrrp {
             "vrrp-instance": [
               {
                 "vrid": 1,
-                "version": "vrrp-v3",
+                "version": "ietf-vrrp:vrrp-v3",
                 "log-state-change": false,
                 "preempt": {
                   "enabled": true,
