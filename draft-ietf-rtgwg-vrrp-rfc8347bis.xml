@@ -804,7 +804,7 @@ module: ietf-vrrp
   <xref target="RFC6527"/>.
 </t>
 
- <figure suppress-title="true"><artwork>
+<artwork>
 <![CDATA[<CODE BEGINS> file "ietf-vrrp@2025-06-09.yang"
 module ietf-vrrp {
   yang-version 1.1;
@@ -1899,7 +1899,7 @@ module ietf-vrrp {
   }
 }
 <CODE ENDS> ]]>
- </artwork></figure>
+</artwork>
 
 </section>
 
@@ -2058,7 +2058,6 @@ module ietf-vrrp {
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.4252.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6020.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6241.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.7224.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.7951.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8040.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8340.xml"/>
@@ -2067,6 +2066,14 @@ module ietf-vrrp {
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8641.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.9000.xml"/>
     <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-netmod-rfc8407bis.xml"/>
+    <reference anchor="IANA_IF_TYPE" target="https://www.iana.org/assignments/iana-if-type/iana-if-type.xhtml">
+      <front>
+        <title>iana-if-types YANG Module</title>
+        <author>
+          <organization>IANA</organization>
+        </author>
+      </front>
+    </reference>  
   </references>
 
 <section title="Data Tree Example">
@@ -2074,10 +2081,10 @@ module ietf-vrrp {
    This section contains an example of an instance data tree in JSON
    encoding <xref target="RFC7951"/>, containing both configuration and
    state data. (This example includes "iana-if-type", which is
-   defined in <xref target="RFC7224"/>.)
+   defined in <xref target="IANA_IF_TYPE"/>.)
  </t>
 
- <figure anchor="fig-7"><artwork>
+ <figure anchor="fig-6"><artwork>
               Virtual router IP address: fe80::1
            +-----------------+        +-----------------+
            |                 |        |                 |
@@ -2097,11 +2104,11 @@ module ietf-vrrp {
  </artwork></figure>
 
  <t>
-   The configuration instance data for Router 1 in the above figure
-   could be as follows:
+   The configuration instance data for Router 1 in <xref target="fig-6"/>
+   could be shown in <xref target="fig-7"/>:
  </t>
 
- <figure anchor="fig-8"><artwork>
+ <figure anchor="fig-7"><artwork>
 {
   "ietf-interfaces:interfaces": {
     "interface": [
@@ -2145,10 +2152,10 @@ module ietf-vrrp {
 
  <t>
    The corresponding operational state data for Router 1
-   could be as follows:
+   could be shown in <xref target="fig-8"/>:
  </t>
 
- <figure anchor="fig-9"><artwork>
+ <figure anchor="fig-8"><artwork>
 {
   "ietf-interfaces:interfaces": {
     "interface": [

@@ -71,7 +71,7 @@ module ietf-vrrp {
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
 
-  revision 2025-06-09 {
+  revision 2025-06-12 {
     description
       "This revision includes the following changes:
        - Update some identifiers and descriptions to conform
@@ -130,14 +130,14 @@ module ietf-vrrp {
       }
       enum no-response {
         description
-          "Previous active virutal router did not respond.";
+          "Previous active virtual router did not respond.";
       }
     }
     description
       "Indicates why the virtual router has transitioned to
        active state.
 
-       The identifier of this typedef is changed to to reflect
+       The identifier of this typedef is changed to reflect
        the updated terminology used in RFC 9568.";
   } // new-active-reason-type
 
@@ -182,7 +182,7 @@ module ietf-vrrp {
       "Indicates that the current active virtual router has not sent
        an advertisement within the limit of active-down-interval.
 
-       The identity is changed to to reflect the updated terminology
+       The identity is changed to reflect the updated terminology
        used in RFC 9568.";
   }
 
@@ -240,7 +240,7 @@ module ietf-vrrp {
     description
       "Indicates that there is a lower-priority VRRP active router.
 
-       The identity is changed to to reflect the updated terminology
+       The identity is changed to reflect the updated terminology
        used in RFC 9568.";
   }
 
@@ -347,7 +347,7 @@ module ietf-vrrp {
        packets for IP addresses that are associated with
        this virtual router.
 
-       The identity is changed to to reflect the updated terminology
+       The identity is changed to reflect the updated terminology
        used in RFC 9568.";
   }
 
@@ -430,7 +430,8 @@ module ietf-vrrp {
          virtual router.";
     }
     leaf accept-mode {
-      when "derived-from-or-self(current()/../version, 'vrrp-v3')" {
+      when "derived-from-or-self(current()/../version,
+        'vrrp:vrrp-v3')" {
         description
           "Applicable only to version 3.";
       }
@@ -460,7 +461,7 @@ module ietf-vrrp {
          or VRRPv3 advertisements are sent from the specified
          interface.";
       case v2 {
-        when "derived-from-or-self(version, 'vrrp-v2')" {
+        when "derived-from-or-self(version, 'vrrp:vrrp-v2')" {
           description
             "Applicable only to version 2.";
         }
@@ -476,7 +477,7 @@ module ietf-vrrp {
         }
       }
       case v3 {
-        when "derived-from-or-self(version, 'vrrp-v3')" {
+        when "derived-from-or-self(version, 'vrrp:vrrp-v3')" {
           description
             "Applicable only to version 3.";
         }
@@ -753,7 +754,7 @@ module ietf-vrrp {
         "Time interval for the backup virtual router to declare
          'active down'.
 
-         The identifier of this leaf is changed to to reflect
+         The identifier of this leaf is changed to reflect
          the updated terminology used in RFC 9568.";
     }
     leaf skew-time {
@@ -779,7 +780,7 @@ module ietf-vrrp {
         "Indicates why the virtual router has transitioned to
          active state.
 
-         The identifier of this leaf is changed to to reflect
+         The identifier of this leaf is changed to reflect
          the updated terminology used in RFC 9568.";
     }
     container statistics {
@@ -802,7 +803,7 @@ module ietf-vrrp {
           "The total number of times that this virtual router's
            state has transitioned to 'Active'.
 
-           The identifier of this leaf is changed to to reflect
+           The identifier of this leaf is changed to reflect
            the updated terminology used in RFC 9568.";
       }
       leaf advertisement-rcvd {
@@ -896,7 +897,7 @@ module ietf-vrrp {
            VRRP checksum value.";
         reference
           "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
-                     Version 3 for IPv4 and IPv6.  Section 5.2.8";
+          Version 3 for IPv4 and IPv6, Section 5.2.8.";
       }
       leaf version-errors {
         type yang:counter64;
@@ -905,7 +906,7 @@ module ietf-vrrp {
            or unsupported version number.";
         reference
           "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
-                     Version 3 for IPv4 and IPv6.  Section 5.2.1";
+          Version 3 for IPv4 and IPv6, Section 5.2.1.";
       }
       leaf vrid-errors {
         type yang:counter64;
@@ -914,7 +915,7 @@ module ietf-vrrp {
            is not valid for any virtual router on this router.";
         reference
           "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
-                     Version 3 for IPv4 and IPv6.  Section 5.2.3";
+                     Version 3 for IPv4 and IPv6, Section 5.2.3.";
       }
       leaf ip-ttl-errors {
         type yang:counter64;
