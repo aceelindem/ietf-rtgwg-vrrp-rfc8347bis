@@ -71,7 +71,7 @@ module ietf-vrrp {
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
 
-  revision 2025-06-12 {
+  revision 2025-12-07 {
     description
       "This revision includes the following changes:
        - Update some identifiers and descriptions to conform
@@ -431,7 +431,7 @@ module ietf-vrrp {
     }
     leaf accept-mode {
       when "derived-from-or-self(current()/../version,
-        'vrrp:vrrp-v3')" {
+            'vrrp:vrrp-v3')" {
         description
           "Applicable only to version 3.";
       }
@@ -897,7 +897,7 @@ module ietf-vrrp {
            VRRP checksum value.";
         reference
           "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
-          Version 3 for IPv4 and IPv6, Section 5.2.8.";
+           Version 3 for IPv4 and IPv6, Section 5.2.8.";
       }
       leaf version-errors {
         type yang:counter64;
@@ -906,7 +906,7 @@ module ietf-vrrp {
            or unsupported version number.";
         reference
           "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
-          Version 3 for IPv4 and IPv6, Section 5.2.1.";
+           Version 3 for IPv4 and IPv6, Section 5.2.1.";
       }
       leaf vrid-errors {
         type yang:counter64;
