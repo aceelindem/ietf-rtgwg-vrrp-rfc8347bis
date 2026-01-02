@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-09"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-10"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -664,7 +664,7 @@ module: ietf-vrrp
 <section title="Tree Structure">
  <t>
    The VRRP YANG data model defined in this document has the
-   following tree structure (xref target="fig-5">:
+   following tree structure (<xref target="fig-5"/>):
  </t>
 
  <figure anchor="fig-5"><artwork>
@@ -2034,6 +2034,9 @@ module ietf-vrrp {
   </t>
   <t>
     Thanks to Carlos Pignataro for review and comments.
+  </t>
+  <t>
+    Thanks to Yingzhen Qu for review and comments.
   </t>
 </section>
 </middle>
