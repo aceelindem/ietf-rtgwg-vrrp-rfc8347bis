@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-10"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-11"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -40,16 +40,6 @@ please see http://xml.resource.org/authoring/README.html. -->
       </address>
     </author>
 
-    <author fullname="Xufeng Liu" initials="X." surname="Liu">
-      <organization>Alef Edge</organization>
-      <address>
-        <postal>
-          <country>United States of America</country>
-        </postal>
-        <email>xufeng.liu.ietf@gmail.com</email>
-      </address>
-    </author>
-
     <author fullname="Athanasios Kyparlis" initials="A." surname="Kyparlis">
       <organization>Jabil</organization>
       <address>
@@ -74,18 +64,6 @@ please see http://xml.resource.org/authoring/README.html. -->
       </address>
     </author>
 
-     <author fullname="Mingui Zhang" initials="M." surname="Zhang">
-       <organization>China Tower</organization>
-       <address>
-         <postal>
-          <street>9 Dongranbeijie Haidian District</street>
-          <city>Beijing</city>
-          <country>China</country>
-         </postal>
-         <email>zhangmg3@chinatowercom.cn</email>
-      </address>
-    </author>
-
     <keyword>Network Management</keyword>
     <keyword>Routing</keyword>
     <keyword>YANG</keyword>
@@ -96,7 +74,7 @@ please see http://xml.resource.org/authoring/README.html. -->
    Protocol (VRRP). Both versions 2 and 3 of VRRP are covered.
  </t>
  <t>
-   The VRRP terminology has been updated conform to inclusive language
+   The VRRP terminology has been updated to conform to inclusive language
    guidelines for IETF technologies.
  </t>
  <t>
@@ -125,7 +103,7 @@ please see http://xml.resource.org/authoring/README.html. -->
  </t>
 
  <t>
-   The VRRP terminology has been updated conform to inclusive language
+   The VRRP terminology has been updated to conform to inclusive language
    guidelines for IETF technologies.
    This document obsoletes VRRP Version 3 <xref target="RFC8347"/>.
  </t>
@@ -805,7 +783,7 @@ module: ietf-vrrp
 </t>
 
 <artwork>
-<![CDATA[<CODE BEGINS> file "ietf-vrrp@2025-07-09.yang"
+<![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-01-07.yang"
 module ietf-vrrp {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-vrrp";
@@ -841,22 +819,16 @@ module ietf-vrrp {
      Editor:   Acee Lindem
                <mailto:acee.ietf@gmail.com>
 
-     Editor:   Xufeng Liu
-               <mailto:xufeng.liu.ietf@gmail.com>
-
      Editor:   Athanasios Kyparlis
                <mailto:Athanasios_Kyparlis@jabil.com>
 
      Editor:   Ravi Parikh
-               <mailto:parikhr@vmware.com>
-
-     Editor:   Mingui Zhang
-               <mailto:zhangmingui@huawei.com>";
+               <mailto:parikhr@vmware.com>";
   description
     "This YANG module defines a model for managing Virtual Router
      Redundancy Protocol (VRRP) versions 2 and 3.
 
-     Copyright (c) 2025 IETF Trust and the persons identified as
+     Copyright (c) 2026 IETF Trust and the persons identified as
      authors of the code.  All rights reserved.
 
      Redistribution and use in source and binary forms, with or
@@ -879,7 +851,7 @@ module ietf-vrrp {
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
 
-  revision 2025-12-07 {
+  revision 2026-01-07 {
     description
       "This revision includes the following changes:
        - Update some identifiers and descriptions to conform
@@ -2037,6 +2009,9 @@ module ietf-vrrp {
   </t>
   <t>
     Thanks to Yingzhen Qu for review and comments.
+  </t>
+  <t>
+    Thanks to Xufeng Liu and Mingui Zhang for co-authoring RFC 8347.
   </t>
 </section>
 </middle>
