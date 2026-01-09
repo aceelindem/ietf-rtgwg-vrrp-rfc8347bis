@@ -32,7 +32,7 @@ module ietf-vrrp {
 
      Editor:   Acee Lindem
                <mailto:acee.ietf@gmail.com>
-     
+
      Editor:   Xufeng Liu
                <mailto:xufeng.liu.ietf@gmail.com>
 
@@ -40,7 +40,11 @@ module ietf-vrrp {
                <mailto:Athanasios_Kyparlis@jabil.com>
 
      Editor:   Ravi Parikh
-               <mailto:parikhr@vmware.com>";
+               <mailto:parikhr@vmware.com>
+
+     Editor:   Mingui Zhang
+               <mailto:zhangmingui@huawei.com>";
+
   description
     "This YANG module defines a model for managing Virtual Router
      Redundancy Protocol (VRRP) versions 2 and 3.
@@ -68,7 +72,7 @@ module ietf-vrrp {
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
 
-  revision 2026-01-07 {
+  revision 2026-01-09 {
     description
       "This revision includes the following changes:
        - Update some identifiers and descriptions to conform

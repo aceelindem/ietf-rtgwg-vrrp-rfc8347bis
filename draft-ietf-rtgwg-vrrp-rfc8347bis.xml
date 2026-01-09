@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-12"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-13"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -71,6 +71,18 @@ please see http://xml.resource.org/authoring/README.html. -->
           <country>United States of America</country>
         </postal>
         <email>parikh_ravi@ymail.com</email>
+      </address>
+    </author>
+
+    <author fullname="Mingui Zhang" initials="M." surname="Zhang">
+       <organization>China Tower</organization>
+       <address>
+         <postal>
+          <street>9 Dongranbeijie Haidian District</street>
+          <city>Beijing</city>
+          <country>China</country>
+         </postal>
+         <email>zhangmg3@chinatowercom.cn</email>
       </address>
     </author>
 
@@ -793,7 +805,7 @@ module: ietf-vrrp
 </t>
 
 <artwork>
-  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-01-07.yang"
+  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-01-09.yang"
 module ietf-vrrp {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-vrrp";
@@ -828,7 +840,7 @@ module ietf-vrrp {
 
      Editor:   Acee Lindem
                <mailto:acee.ietf@gmail.com>
-     
+
      Editor:   Xufeng Liu
                <mailto:xufeng.liu.ietf@gmail.com>
 
@@ -836,7 +848,11 @@ module ietf-vrrp {
                <mailto:Athanasios_Kyparlis@jabil.com>
 
      Editor:   Ravi Parikh
-               <mailto:parikhr@vmware.com>";
+               <mailto:parikhr@vmware.com>
+
+     Editor:   Mingui Zhang
+               <mailto:zhangmingui@huawei.com>";
+
   description
     "This YANG module defines a model for managing Virtual Router
      Redundancy Protocol (VRRP) versions 2 and 3.
@@ -864,7 +880,7 @@ module ietf-vrrp {
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
 
-  revision 2026-01-07 {
+  revision 2026-01-09 {
     description
       "This revision includes the following changes:
        - Update some identifiers and descriptions to conform
@@ -1884,6 +1900,7 @@ module ietf-vrrp {
     }
   }
 }
+
 <CODE ENDS> ]]>
 </artwork>
 
@@ -2023,9 +2040,6 @@ module ietf-vrrp {
   <t>
     Thanks to Yingzhen Qu for review and comments.
   </t>
-  <t>
-    Thanks to Mingui Zhang for co-authoring RFC 8347.
-  </t>
 </section>
 </middle>
 
@@ -2065,7 +2079,7 @@ module ietf-vrrp {
           <organization>IANA</organization>
         </author>
       </front>
-    </reference>  
+    </reference>
   </references>
 
 <section title="Data Tree Example">
