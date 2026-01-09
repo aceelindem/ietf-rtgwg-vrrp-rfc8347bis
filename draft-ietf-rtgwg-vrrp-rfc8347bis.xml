@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-11"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-12"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -37,6 +37,16 @@ please see http://xml.resource.org/authoring/README.html. -->
           <country>United States of America</country>
         </postal>
         <email>acee.ietf@gmail.com</email>
+      </address>
+    </author>
+
+    <author fullname="Xufeng Liu" initials="X." surname="Liu">
+      <organization>Alef Edge</organization>
+      <address>
+        <postal>
+          <country>United States of America</country>
+        </postal>
+        <email>xufeng.liu.ietf@gmail.com</email>
       </address>
     </author>
 
@@ -783,7 +793,7 @@ module: ietf-vrrp
 </t>
 
 <artwork>
-<![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-01-07.yang"
+  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-01-07.yang"
 module ietf-vrrp {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-vrrp";
@@ -818,6 +828,9 @@ module ietf-vrrp {
 
      Editor:   Acee Lindem
                <mailto:acee.ietf@gmail.com>
+     
+     Editor:   Xufeng Liu
+               <mailto:xufeng.liu.ietf@gmail.com>
 
      Editor:   Athanasios Kyparlis
                <mailto:Athanasios_Kyparlis@jabil.com>
@@ -2011,7 +2024,7 @@ module ietf-vrrp {
     Thanks to Yingzhen Qu for review and comments.
   </t>
   <t>
-    Thanks to Xufeng Liu and Mingui Zhang for co-authoring RFC 8347.
+    Thanks to Mingui Zhang for co-authoring RFC 8347.
   </t>
 </section>
 </middle>
