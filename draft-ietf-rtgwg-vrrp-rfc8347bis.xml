@@ -8,7 +8,7 @@ please see http://xml.resource.org/authoring/README.html. -->
 <rfc
     xmlns:xi="http://www.w3.org/2001/XInclude"
     category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-14"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-15"
     ipr="trust200902"
     obsoletes="8347"
     updates=""
@@ -109,8 +109,8 @@ please see http://xml.resource.org/authoring/README.html. -->
 
 <section title="Introduction">
  <t>
-   This document introduces a YANG data model <xref target="RFC6020"/>
-   <xref target="RFC7950"/> for the Virtual Router Redundancy Protocol
+   This document introduces a YANG data model <xref target="RFC7950"/>
+   for the Virtual Router Redundancy Protocol
    (VRRP) <xref target="RFC3768"/>, <xref target="RFC9568"/>. VRRP provides
    higher resiliency by specifying an election protocol that dynamically
    assigns responsibility for a virtual router to one of the VRRP routers
@@ -277,13 +277,13 @@ please see http://xml.resource.org/authoring/README.html. -->
        <td align="left">yang</td>
        <td align="left">ietf-yang-types</td>
        <td align="left">
-       <xref target="RFC6991" format="default"/></td>
+       <xref target="RFC9911" format="default"/></td>
      </tr>
      <tr>
        <td align="left">inet</td>
        <td align="left">ietf-inet-types</td>
        <td align="left">
-       <xref target="RFC6991" format="default"/></td>
+       <xref target="RFC9911" format="default"/></td>
      </tr>
      <tr>
        <td align="left">if</td>
@@ -805,7 +805,7 @@ module: ietf-vrrp
 </t>
 
 <artwork>
-  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-01-09.yang"
+  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-02-13.yang"
 module ietf-vrrp {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-vrrp";
@@ -814,12 +814,12 @@ module ietf-vrrp {
   import ietf-inet-types {
     prefix inet;
     reference
-      "RFC 6991: Common YANG Data Types, Section 4";
+      "RFC 9911: Common YANG Data Types, Section 4";
   }
   import ietf-yang-types {
     prefix yang;
     reference
-      "RFC 6991: Common YANG Data Types, Section 3";
+      "RFC 9911: Common YANG Data Types, Section 3";
   }
   import ietf-interfaces {
     prefix if;
@@ -880,7 +880,7 @@ module ietf-vrrp {
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
 
-  revision 2026-01-09 {
+  revision 2026-02-13 {
     description
       "This revision includes the following changes:
        - Update some identifiers and descriptions to conform
@@ -1572,7 +1572,7 @@ module ietf-vrrp {
       config false;
       description
         "Calculated based on the priority and advertisement
-         interval configuration command parameters.  See RFC 3768.";
+         interval configuration command parameters.  See RFC 9568.";
     }
     leaf last-event {
       type identityref {
@@ -1900,7 +1900,6 @@ module ietf-vrrp {
     }
   }
 }
-
 <CODE ENDS> ]]>
 </artwork>
 
@@ -1919,9 +1918,9 @@ module ietf-vrrp {
       ]]>
  </artwork>
  <t>
-   IANA is requested to register the following YANG module in the "YANG
-   Module Names" registry [RFC6020] within the "YANG Parameters"
-   registry group.
+   IANA is requested to update the following YANG modue in the "YANG
+   Module Names" registry <xref target="RFC6020"/> within the
+   "YANG Parameters" registry group to reference this document:
  </t>
  <artwork name="" type="" align="left" alt=""><![CDATA[
       Name: ietf-vrrp
@@ -2049,7 +2048,6 @@ module ietf-vrrp {
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.2119.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.3768.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6527.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6991.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.7950.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8174.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8341.xml"/>
@@ -2057,6 +2055,7 @@ module ietf-vrrp {
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8343.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8344.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8347.xml"/>
+    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.9911.xml"/>
     <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.9568.xml"/>
 </references>
 
