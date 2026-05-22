@@ -1,27 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- This template is for creating an Internet Draft using xml2rfc,
-which is available here: http://xml.resource.org. -->
-<!DOCTYPE rfc>
-<!-- used by XSLT processors -->
-<!-- For a complete list and description of processing instructions (PIs),
-please see http://xml.resource.org/authoring/README.html. -->
-<rfc
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-15"
-    ipr="trust200902"
-    obsoletes="8347"
-    updates=""
-    submissionType="IETF"
-    xml:lang="en"
-    tocInclude="true"
-    tocDepth="4"
-    symRefs="true"
-    sortRefs="true"
-    consensus="true"
-    version="3">
-  <front>
-
+<!DOCTYPE rfc [
+  <!ENTITY nbsp    "&#160;">
+  <!ENTITY zwsp   "&#8203;">
+  <!ENTITY nbhy   "&#8209;">
+  <!ENTITY wj     "&#8288;">
+]>
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<?rfc strict="no" ?>
+<?rfc toc="yes" ?>
+<?rfc symrefs="yes" ?>
+<?rfc sortrefs="yes"?>
+<?rfc rfcedstyle="yes" ?>
+<?rfc subcompact="no" ?>
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std"
+     docName="draft-ietf-rtgwg-vrrp-rfc8347bis-16"
+     ipr="trust200902" obsoletes="8347" updates="" submissionType="IETF" xml:lang="en" tocInclude="true"
+     symRefs="true" sortRefs="true" version="3" consensus="true">
+<front>
     <title abbrev='YANG VRRP'>
       A YANG Data Model for the Virtual Router Redundancy Protocol (VRRP)
     </title>
@@ -104,7 +99,6 @@ please see http://xml.resource.org/authoring/README.html. -->
  </t>
 </abstract>
   </front>
-
   <middle>
 
 <section title="Introduction">
@@ -165,7 +159,7 @@ please see http://xml.resource.org/authoring/README.html. -->
        was updated.
      </li>
      <li>
-       The descriptive text for identify "vrrp-event-owner-prempt" was updated.
+       The descriptive text for identify "vrrp-event-owner-preempt" was updated.
      </li>
      <li>
        The descriptive text for identity "backup" was updated.
@@ -186,10 +180,6 @@ please see http://xml.resource.org/authoring/README.html. -->
      <li>
        The leaf "master-down-interval" was changed to
        "active-down-interval". The associated descriptive text was also updated.
-     </li>
-     <li>
-       The leaf "new-master-reason" was changed to "new-active-reason".
-       The associated descriptive text was also updated.
      </li>
      <li>
        The leaf "new-master-reason" was changed to "new-active-reason".
@@ -217,7 +207,7 @@ please see http://xml.resource.org/authoring/README.html. -->
    </t>
    <ul>
      <li>
-       The leaf "effective-priority" was add to the grouping
+       The leaf "effective-priority" was added to the grouping
        "grouping vrrp-state-attributes" to reflect the effective priority due
        to the VRRP router owning the address or any local policy adjusting the
        priority.
@@ -805,7 +795,7 @@ module: ietf-vrrp
 </t>
 
 <artwork>
-  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-02-13.yang"
+  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-05-22.yang"
 module ietf-vrrp {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-vrrp";
@@ -848,11 +838,10 @@ module ietf-vrrp {
                <mailto:Athanasios_Kyparlis@jabil.com>
 
      Editor:   Ravi Parikh
-               <mailto:parikhr@vmware.com>
+               <mailto:parikh_ravi@ymail.com>
 
      Editor:   Mingui Zhang
                <mailto:zhangmingui@huawei.com>";
-
   description
     "This YANG module defines a model for managing Virtual Router
      Redundancy Protocol (VRRP) versions 2 and 3.
@@ -880,11 +869,11 @@ module ietf-vrrp {
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
 
-  revision 2026-02-13 {
+  revision 2026-05-22 {
     description
       "This revision includes the following changes:
        - Update some identifiers and descriptions to conform
-         to the changes in RFC 9586
+         to the changes in RFC 9568
        - Add a new effective-priority leaf
        - Update some reference statements";
     reference
@@ -1206,8 +1195,9 @@ module ietf-vrrp {
       default "false";
       description
         "Generates VRRP state change messages each time the
-         VRRP instance changes state (from 'up' to 'down'
-         or 'down' to 'up').";
+         VRRP instance changes state from one VRRP state
+         ('initialize', 'backup', or 'active') to another
+         VRRP state.";
     }
     container preempt {
       description
@@ -1422,7 +1412,7 @@ module ietf-vrrp {
          or networks.";
       container interfaces {
         description
-          "Enables the specified VRRPv2 or VRRPv3 instance to track
+          "Enables the specified VRRPv3 instance to track
            interfaces.  Interface tracking prevents traffic loss by
            detecting the availability of interfaces.  The operational
            states of other interfaces are associated with the
@@ -1458,7 +1448,7 @@ module ietf-vrrp {
       } // interfaces
       container networks {
         description
-          "Enables the VRRPv2 or VRRPv3 router instance to track the
+          "Enables the VRRPv3 router instance to track the
            specified networks through their IPv6 network prefixes.
            Network tracking prevents traffic loss by detecting
            network connectivity failure.  The states of
@@ -1471,8 +1461,8 @@ module ietf-vrrp {
         list network {
           key "prefix";
           description
-            "Enables the specified VRRPv2 or VRRPv3 instance to
-             track an IPv6 network by specifying the prefix of the
+            "Enables the specified VRRPv3 instance to track an
+             IPv6 network by specifying the prefix of the
              IPv6 network.";
           leaf prefix {
             type inet:ipv6-prefix;
@@ -1498,11 +1488,15 @@ module ietf-vrrp {
          VRRP interface.";
       list virtual-ipv6-address {
         key "ipv6-address";
-        max-elements 2;
+        max-elements 16;
         description
-          "Two IPv6 addresses are allowed.  The first address must
-           be a link-local address.  The second address can be a
-           link-local or global address.";
+          "Virtual IPv6 addresses for a single VRRP instance.  The
+           first configured virtual address must be an IPv6
+           link-local address. Subsequent IPv6 addresses can be
+           IPv6 link-local or global addresses. For a VRRP owner
+           router, the virtual address must match one of the IPv6
+           global or link-local addresses assoicated with the
+           interface corresponding to the virtual router.";
         leaf ipv6-address {
           type inet:ipv6-address;
           description
@@ -1538,9 +1532,10 @@ module ietf-vrrp {
       }
       config false;
       description
-        "The effect priority of the virtual router taking account
-         address ownership and any modifications due to
-         local policy.";
+        "The effective priority of the virtual router taking
+         account address ownership and any modifications due to
+         local policy. The priority 255 is reserved the virtual
+         router owning the address.";
     }
     leaf last-adv-source {
       type inet:ip-address;
@@ -1553,7 +1548,7 @@ module ietf-vrrp {
       config false;
       description
         "The date and time when this virtual router
-         transitioned out of 'init' state.";
+         transitioned out of 'initialize' state.";
     }
     leaf active-down-interval {
       type uint32;
@@ -1572,7 +1567,9 @@ module ietf-vrrp {
       config false;
       description
         "Calculated based on the priority and advertisement
-         interval configuration command parameters.  See RFC 9568.";
+         interval configuration command parameters. Note that
+         the units are microseconds rather than centiseconds units
+         as configured for advertisement-interval. See RFC 9568.";
     }
     leaf last-event {
       type identityref {
@@ -1607,7 +1604,7 @@ module ietf-vrrp {
            local management subsystem re-initialized itself.";
       }
       leaf active-transitions {
-        type yang:counter32;
+        type yang:counter64;
         description
           "The total number of times that this virtual router's
            state has transitioned to 'Active'.
@@ -1768,7 +1765,7 @@ module ietf-vrrp {
       description
         "Configures VRRP version 3 for IPv6.";
       list vrrp-instance {
-        must "derived-from-or-self(version, 'vrrp-v3')" {
+        must "derived-from-or-self(version, 'vrrp:vrrp-v3')" {
           description
             "IPv6 is only supported by version 3.";
         }
@@ -1918,7 +1915,7 @@ module ietf-vrrp {
       ]]>
  </artwork>
  <t>
-   IANA is requested to update the following YANG modue in the "YANG
+   IANA is requested to update the following YANG module in the "YANG
    Module Names" registry <xref target="RFC6020"/> within the
    "YANG Parameters" registry group to reference this document:
  </t>
@@ -2039,37 +2036,40 @@ module ietf-vrrp {
   <t>
     Thanks to Yingzhen Qu for review and comments.
   </t>
+  <t>
+    Thanks to Ines Robles for review and comments.
+  </t>
 </section>
 </middle>
 
 <back>
 
 <references title="Normative References">
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.2119.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.3768.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6527.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.7950.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8174.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8341.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8342.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8343.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8344.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8347.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.9911.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.9568.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3768.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6527.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7950.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8341.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8342.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8343.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8344.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8347.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9911.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9568.xml"/>
 </references>
 
   <references title="Informative References">
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.4252.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6020.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6241.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.7951.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8040.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8340.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8446.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8639.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.8641.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.9000.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4252.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6020.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6241.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7951.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8040.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8340.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8446.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8639.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8641.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9000.xml"/>
     <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-netmod-rfc8407bis.xml"/>
     <reference anchor="IANA_IF_TYPE" target="https://www.iana.org/assignments/iana-if-type/iana-if-type.xhtml">
       <front>
@@ -2142,7 +2142,7 @@ module ietf-vrrp {
                 "advertise-interval-centi-sec": 50,
                 "virtual-ipv6-addresses": {
                   "virtual-ipv6-address": [
-                    "ipv6-address": "fe80::1"
+                    { "ipv6-address": "fe80::1" }
                   ]
                 }
               }
@@ -2189,7 +2189,7 @@ module ietf-vrrp {
               "origin": "static",
               "status": "preferred"
             }
-          ]
+          ],
           "ietf-vrrp:vrrp": {
             "vrrp-instance": [
               {
@@ -2199,13 +2199,13 @@ module ietf-vrrp {
                 "preempt": {
                   "enabled": true,
                   "hold-time": 0
-                }
+                },
                 "priority": 200,
                 "accept-mode": false,
                 "advertise-interval-centi-sec": 50,
                 "virtual-ipv6-addresses": {
                   "virtual-ipv6-address": [
-                    "ipv6-address": "fe80::1"
+                    { "ipv6-address": "fe80::1" }
                   ]
                 },
                 "state": "active",
