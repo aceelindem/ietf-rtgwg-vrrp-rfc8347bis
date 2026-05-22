@@ -697,7 +697,7 @@ module ietf-vrrp {
            link-local address. Subsequent IPv6 addresses can be
            IPv6 link-local or global addresses. For a VRRP owner
            router, the virtual address must match one of the IPv6
-           global or link-local addresses assoicated with the
+           global or link-local addresses associated with the
            interface corresponding to the virtual router.";
         leaf ipv6-address {
           type inet:ipv6-address;

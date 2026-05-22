@@ -548,7 +548,7 @@ module: ietf-vrrp
    Architecture (NMDA) <xref target="RFC8342"/>.
    The operational state data is combined with the associated
    configuration data in the same hierarchy
-   <xref target="I-D.ietf-netmod-rfc8407bis"/>. When protocol states
+   <xref target="RFC9907"/>. When protocol states
    are retrieved from the NMDA operational state datastore, the
    returned states cover all "config true" (rw) and "config false"
    (ro) nodes defined in the schema.
@@ -1495,7 +1495,7 @@ module ietf-vrrp {
            link-local address. Subsequent IPv6 addresses can be
            IPv6 link-local or global addresses. For a VRRP owner
            router, the virtual address must match one of the IPv6
-           global or link-local addresses assoicated with the
+           global or link-local addresses associated with the
            interface corresponding to the virtual router.";
         leaf ipv6-address {
           type inet:ipv6-address;
@@ -1951,7 +1951,7 @@ module ietf-vrrp {
 <section title="Security Considerations">
 <t>
   This section is modeled after the template described in Section 3.7
-  of <xref target="I-D.ietf-netmod-rfc8407bis"/>.
+  of <xref target="RFC9907"/>.
 </t>
 <t>
    The "ietf-vrrp" YANG module defines a data model that is
@@ -2070,7 +2070,7 @@ module ietf-vrrp {
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8639.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8641.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9000.xml"/>
-    <xi:include href="https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-netmod-rfc8407bis.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9907.xml"/>
     <reference anchor="IANA_IF_TYPE" target="https://www.iana.org/assignments/iana-if-type/iana-if-type.xhtml">
       <front>
         <title>iana-if-types YANG Module</title>
