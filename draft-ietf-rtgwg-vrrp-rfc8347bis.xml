@@ -121,12 +121,12 @@
  <t>
    The VRRP terminology has been updated to conform to inclusive language
    guidelines for IETF technologies.
-   This document obsoletes VRRP Version 3 <xref target="RFC8347"/>.
+   This document obsoletes <xref target="RFC8347"/>.
  </t>
  <section anchor="changes" title="Changes from RFC 8347">
    <t>
      The following changes have been made consistent with IETF inclusive
-     language guidelines:
+     language guidelines and changes made in <xref target="RFC9568"/>:
    </t>
    <ul spacing="normal">
      <li>
@@ -207,8 +207,8 @@
    </t>
    <ul>
      <li>
-       The leaf "effective-priority" was added to the grouping
-       "grouping vrrp-state-attributes" to reflect the effective priority due
+       The leaf "effective-priority" was added to the "vrrp-state-attributes"
+       grouping to reflect the effective priority due
        to the VRRP router owning the address or any local policy adjusting the
        priority.
      </li>
@@ -485,7 +485,8 @@ module: ietf-vrrp
           +--ro active-down-interval?          uint32
           +--ro skew-time?                     uint32
           +--ro last-event?                    identityref
-          +--ro new-active-reason?             new-active-reason-type
+          +--ro new-active-reason?
+          |       new-active-reason-type
           +--ro statistics                // per-instance statistics
              +--ro discontinuity-datetime?    yang:date-and-time
              +--ro active-transitions?        yang:counter32
@@ -527,7 +528,8 @@ module: ietf-vrrp
           +--ro active-down-interval?          uint32
           +--ro skew-time?                     uint32
           +--ro last-event?                    identityref
-          +--ro new-active-reason?             new-active-reason-type
+          +--ro new-active-reason?
+          |       new-active-reason-type
           +--ro statistics                // per-instance statistics
              +--ro discontinuity-datetime?    yang:date-and-time
              +--ro active-transitions?        yang:counter32
@@ -705,7 +707,7 @@ module: ietf-vrrp
           +--ro skew-time?                      uint32
           +--ro last-event?                     identityref
           +--ro new-active-reason?
- new-active-reason-type
+          |       new-active-reason-type
           +--ro statistics
              +--ro discontinuity-datetime?    yang:date-and-time
              +--ro active-transitions?        yang:counter32
@@ -752,7 +754,7 @@ module: ietf-vrrp
           +--ro skew-time?                      uint32
           +--ro last-event?                     identityref
           +--ro new-active-reason?
- new-active-reason-type
+          |       new-active-reason-type
           +--ro statistics
              +--ro discontinuity-datetime?    yang:date-and-time
              +--ro active-transitions?        yang:counter32
@@ -789,13 +791,11 @@ module: ietf-vrrp
 <section title="YANG Module">
 <t>
   This module references
-  <xref target="RFC3768"/>,
-  <xref target="RFC9568"/>, and
-  <xref target="RFC6527"/>.
+  <xref target="RFC3768"/> and  <xref target="RFC9568"/>.
 </t>
 
 <artwork>
-  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-05-22.yang"
+  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-06-11.yang"
 module ietf-vrrp {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-vrrp";
@@ -869,7 +869,7 @@ module ietf-vrrp {
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
 
-  revision 2026-05-22 {
+  revision 2026-06-11 {
     description
       "This revision includes the following changes:
        - Update some identifiers and descriptions to conform
@@ -1229,8 +1229,8 @@ module ietf-vrrp {
          virtual router.";
     }
     leaf accept-mode {
-      when "derived-from-or-self(current()/../version,
-            'vrrp:vrrp-v3')" {
+      when "derived-from-or-self(current()/../version, "
+         + "'vrrp:vrrp-v3')" {
         description
           "Applicable only to version 3.";
       }
@@ -1569,7 +1569,10 @@ module ietf-vrrp {
         "Calculated based on the priority and advertisement
          interval configuration command parameters. Note that
          the units are microseconds rather than centiseconds units
-         as configured for advertisement-interval. See RFC 9568.";
+         as configured for advertisement-interval.";
+      reference
+        "RFC 9568: Virtual Router Redundancy Protocol (VRRP)
+         Version 3 for IPv4 and IPv6, Section 6.1";
     }
     leaf last-event {
       type identityref {
@@ -1610,7 +1613,9 @@ module ietf-vrrp {
            state has transitioned to 'Active'.
 
            The identifier of this leaf is changed to reflect
-           the updated terminology used in RFC 9568.";
+           the updated terminology used in RFC 9568. The leaf type
+           has also been updated to a 64-bit counter consistent
+           with other VRRP counters.";
       }
       leaf advertisement-rcvd {
         type yang:counter64;
@@ -1946,6 +1951,11 @@ module ietf-vrrp {
     iteration rather than going through the deprecation, obsoletion, and
     removal cycle.
   </t>
+  <t>
+    Additionally, the type of the "active-transitions" counter has been
+    updated from 32 bits to 64 bits consistent with other VRRP counters.
+    This is also an identifier that changed as previously described.
+  </t>
   </section>
 </section>
 <section title="Security Considerations">
@@ -2047,25 +2057,24 @@ module ietf-vrrp {
 <references title="Normative References">
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3768.xml"/>
-    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6527.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6020.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7950.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8341.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8342.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8343.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8344.xml"/>
-    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8347.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9911.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9568.xml"/>
 </references>
 
   <references title="Informative References">
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4252.xml"/>
-    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6020.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6241.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7951.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8040.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8340.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8347.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8446.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8639.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8641.xml"/>
