@@ -13,7 +13,7 @@
 <?rfc rfcedstyle="yes" ?>
 <?rfc subcompact="no" ?>
 <rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std"
-     docName="draft-ietf-rtgwg-vrrp-rfc8347bis-17"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-18"
      ipr="trust200902" obsoletes="8347" updates="" submissionType="IETF" xml:lang="en" tocInclude="true"
      symRefs="true" sortRefs="true" version="3" consensus="true">
 <front>
@@ -1920,9 +1920,9 @@ module ietf-vrrp {
       ]]>
  </artwork>
  <t>
-   IANA is asked to create the following additional registration for
-   "ietf-vrrp" in the "YANG Module Names" registry <xref target="RFC6020"/>
-   within the "YANG Parameters" registry group to reference this document:
+    IANA is requested to register the following YANG module in the "YANG
+    Module Names" registry <xref target="RFC6020"/><xref target="RFC9890"/>
+    within the "YANG Parameters" registry group.
  </t>
  <artwork name="" type="" align="left" alt=""><![CDATA[
       Name: ietf-vrrp
@@ -2066,6 +2066,7 @@ module ietf-vrrp {
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8344.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9911.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9568.xml"/>
+    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9890.xml"/>
 </references>
 
   <references title="Informative References">
