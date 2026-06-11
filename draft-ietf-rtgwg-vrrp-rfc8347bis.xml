@@ -13,7 +13,7 @@
 <?rfc rfcedstyle="yes" ?>
 <?rfc subcompact="no" ?>
 <rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std"
-     docName="draft-ietf-rtgwg-vrrp-rfc8347bis-16"
+     docName="draft-ietf-rtgwg-vrrp-rfc8347bis-17"
      ipr="trust200902" obsoletes="8347" updates="" submissionType="IETF" xml:lang="en" tocInclude="true"
      symRefs="true" sortRefs="true" version="3" consensus="true">
 <front>
@@ -1915,9 +1915,9 @@ module ietf-vrrp {
       ]]>
  </artwork>
  <t>
-   IANA is requested to update the following YANG module in the "YANG
-   Module Names" registry <xref target="RFC6020"/> within the
-   "YANG Parameters" registry group to reference this document:
+   IANA is asked to create the following additional registration for
+   "ietf-vrrp" in the "YANG Module Names" registry <xref target="RFC6020"/>
+   within the "YANG Parameters" registry group to reference this document:
  </t>
  <artwork name="" type="" align="left" alt=""><![CDATA[
       Name: ietf-vrrp
