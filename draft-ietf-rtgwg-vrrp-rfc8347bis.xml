@@ -13,7 +13,7 @@
 <?rfc rfcedstyle="yes" ?>
 <?rfc subcompact="no" ?>
 <rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-18"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-19"
      ipr="trust200902" obsoletes="8347" updates="" submissionType="IETF" xml:lang="en" tocInclude="true"
      symRefs="true" sortRefs="true" version="3" consensus="true">
 <front>
@@ -159,7 +159,7 @@
        was updated.
      </li>
      <li>
-       The descriptive text for identify "vrrp-event-owner-preempt" was updated.
+       The descriptive text for identity "vrrp-event-owner-preempt" was updated.
      </li>
      <li>
        The descriptive text for identity "backup" was updated.
@@ -795,7 +795,7 @@ module: ietf-vrrp
 </t>
 
 <artwork>
-  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-06-11.yang"
+  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-06-12.yang"
 module ietf-vrrp {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-vrrp";
@@ -869,7 +869,7 @@ module ietf-vrrp {
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
 
-  revision 2026-06-11 {
+  revision 2026-06-12 {
     description
       "This revision includes the following changes:
        - Update some identifiers and descriptions to conform
@@ -1534,8 +1534,8 @@ module ietf-vrrp {
       description
         "The effective priority of the virtual router taking
          account address ownership and any modifications due to
-         local policy. The priority 255 is reserved the virtual
-         router owning the address.";
+         local policy. The priority 255 is reserved for the
+         virtual router owning the address.";
     }
     leaf last-adv-source {
       type inet:ip-address;
@@ -2048,6 +2048,9 @@ module ietf-vrrp {
   </t>
   <t>
     Thanks to Ines Robles for review and comments.
+  </t>
+  <t>
+    Thanks to Linda Dunbar for review and comments.
   </t>
 </section>
 </middle>
