@@ -13,7 +13,7 @@
 <?rfc rfcedstyle="yes" ?>
 <?rfc subcompact="no" ?>
 <rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-19"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-20"
      ipr="trust200902" obsoletes="8347" updates="" submissionType="IETF" xml:lang="en" tocInclude="true"
      symRefs="true" sortRefs="true" version="3" consensus="true">
 <front>
@@ -87,7 +87,7 @@
 
 <abstract>
  <t>
-   This document describes a YANG data model for the Virtual Router Redundancy
+   This document specifies a YANG data model for the Virtual Router Redundancy
    Protocol (VRRP). Both versions 2 and 3 of VRRP are covered.
  </t>
  <t>
@@ -103,7 +103,7 @@
 
 <section title="Introduction">
  <t>
-   This document introduces a YANG data model <xref target="RFC7950"/>
+   This document defines a YANG data model <xref target="RFC7950"/>
    for the Virtual Router Redundancy Protocol
    (VRRP) <xref target="RFC3768"/>, <xref target="RFC9568"/>. VRRP provides
    higher resiliency by specifying an election protocol that dynamically
@@ -1067,8 +1067,8 @@ module ietf-vrrp {
   identity ip-ttl-error {
     base vrrp-error-global;
     description
-      "A packet has been received with IP TTL (Time-To-Live)
-       not equal to 255.";
+    "A packet has been received with IP TTL (Time-To-Live) (IPv4)
+     or Hop-Limit (IPv6) not equal to 255.";
   }
 
   identity version-error {
@@ -2041,16 +2041,8 @@ module ietf-vrrp {
     Thanks to Med Boucadair for an extensive review and suggested edits.
   </t>
   <t>
-    Thanks to Carlos Pignataro for review and comments.
-  </t>
-  <t>
-    Thanks to Yingzhen Qu for review and comments.
-  </t>
-  <t>
-    Thanks to Ines Robles for review and comments.
-  </t>
-  <t>
-    Thanks to Linda Dunbar for review and comments.
+    Thanks to Carlos Pignataro, Yingzhen Qu, Ines Robles, Linda Dunbar, and
+    Eric Vyncke for review and comments.
   </t>
 </section>
 </middle>

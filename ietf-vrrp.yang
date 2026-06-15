@@ -269,8 +269,8 @@ module ietf-vrrp {
   identity ip-ttl-error {
     base vrrp-error-global;
     description
-      "A packet has been received with IP TTL (Time-To-Live)
-       not equal to 255.";
+      "A packet has been received with IP TTL (Time-To-Live) (IPv4)
+       or Hop-Limit (IPv6) not equal to 255.";
   }
 
   identity version-error {
