@@ -13,7 +13,7 @@
 <?rfc rfcedstyle="yes" ?>
 <?rfc subcompact="no" ?>
 <rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-20"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-21"
      ipr="trust200902" obsoletes="8347" updates="" submissionType="IETF" xml:lang="en" tocInclude="true"
      symRefs="true" sortRefs="true" version="3" consensus="true">
 <front>
@@ -489,7 +489,7 @@ module: ietf-vrrp
           |       new-active-reason-type
           +--ro statistics                // per-instance statistics
              +--ro discontinuity-datetime?    yang:date-and-time
-             +--ro active-transitions?        yang:counter32
+             +--ro active-transitions?        yang:counter64
              +--ro advertisement-rcvd?        yang:counter64
              +--ro advertisement-sent?        yang:counter64
              +--ro interval-errors?           yang:counter64
@@ -532,7 +532,7 @@ module: ietf-vrrp
           |       new-active-reason-type
           +--ro statistics                // per-instance statistics
              +--ro discontinuity-datetime?    yang:date-and-time
-             +--ro active-transitions?        yang:counter32
+             +--ro active-transitions?        yang:counter64
              +--ro advertisement-rcvd?        yang:counter64
              +--ro advertisement-sent?        yang:counter64
              +--ro interval-errors?           yang:counter64
@@ -710,7 +710,7 @@ module: ietf-vrrp
           |       new-active-reason-type
           +--ro statistics
              +--ro discontinuity-datetime?    yang:date-and-time
-             +--ro active-transitions?        yang:counter32
+             +--ro active-transitions?        yang:counter64
              +--ro advertisement-rcvd?        yang:counter64
              +--ro advertisement-sent?        yang:counter64
              +--ro interval-errors?           yang:counter64
@@ -757,7 +757,7 @@ module: ietf-vrrp
           |       new-active-reason-type
           +--ro statistics
              +--ro discontinuity-datetime?    yang:date-and-time
-             +--ro active-transitions?        yang:counter32
+             +--ro active-transitions?        yang:counter64
              +--ro advertisement-rcvd?        yang:counter64
              +--ro advertisement-sent?        yang:counter64
              +--ro interval-errors?           yang:counter64
@@ -2041,8 +2041,8 @@ module ietf-vrrp {
     Thanks to Med Boucadair for an extensive review and suggested edits.
   </t>
   <t>
-    Thanks to Carlos Pignataro, Yingzhen Qu, Ines Robles, Linda Dunbar, and
-    Eric Vyncke for review and comments.
+    Thanks to Carlos Pignataro, Yingzhen Qu, Ines Robles, Linda Dunbar, Mahesh
+    Jethanandani, and Eric Vyncke for review and comments.
   </t>
 </section>
 </middle>
