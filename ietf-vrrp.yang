@@ -71,7 +71,7 @@ module ietf-vrrp {
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
 
-  revision 2026-06-12 {
+  revision 2026-06-18 {
     description
       "This revision includes the following changes:
        - Update some identifiers and descriptions to conform
@@ -427,8 +427,8 @@ module ietf-vrrp {
       }
       default "100";
       description
-        "Configures the VRRP election priority for the backup
-         virtual router.";
+        "Configures the VRRP election priority for the virtual
+         router.";
     }
     leaf accept-mode {
       when "derived-from-or-self(current()/../version, "
@@ -812,7 +812,7 @@ module ietf-vrrp {
         type yang:counter64;
         description
           "The total number of times that this virtual router's
-           state has transitioned to 'Active'.
+           state has transitioned to 'active'.
 
            The identifier of this leaf is changed to reflect
            the updated terminology used in RFC 9568. The leaf type
