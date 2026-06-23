@@ -13,7 +13,7 @@
 <?rfc rfcedstyle="yes" ?>
 <?rfc subcompact="no" ?>
 <rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std"
-    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-21"
+    docName="draft-ietf-rtgwg-vrrp-rfc8347bis-23"
      ipr="trust200902" obsoletes="8347" updates="" submissionType="IETF" xml:lang="en" tocInclude="true"
      symRefs="true" sortRefs="true" version="3" consensus="true">
 <front>
@@ -505,7 +505,7 @@ module: ietf-vrrp
     +--rw vrrp
        +--rw vrrp-instance* [vrid]
           +--rw vrid                            uint8
-          +     ...
+          |     ...
           +--rw track
           |  +--rw interfaces
           |  |  +--rw interface* [interface]
@@ -795,7 +795,7 @@ module: ietf-vrrp
 </t>
 
 <artwork>
-  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-06-12.yang"
+  <![CDATA[<CODE BEGINS> file "ietf-vrrp@2026-06-18.yang"
 module ietf-vrrp {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-vrrp";
@@ -869,7 +869,7 @@ module ietf-vrrp {
      This version of this YANG module is part of RFC XXXX; see
      the RFC itself for full legal notices.";
 
-  revision 2026-06-12 {
+  revision 2026-06-18 {
     description
       "This revision includes the following changes:
        - Update some identifiers and descriptions to conform
@@ -1067,8 +1067,8 @@ module ietf-vrrp {
   identity ip-ttl-error {
     base vrrp-error-global;
     description
-    "A packet has been received with IP TTL (Time-To-Live) (IPv4)
-     or Hop-Limit (IPv6) not equal to 255.";
+      "A packet has been received with IP TTL (Time-To-Live) (IPv4)
+       or Hop-Limit (IPv6) not equal to 255.";
   }
 
   identity version-error {
@@ -1225,8 +1225,8 @@ module ietf-vrrp {
       }
       default "100";
       description
-        "Configures the VRRP election priority for the backup
-         virtual router.";
+        "Configures the VRRP election priority for the virtual
+         router.";
     }
     leaf accept-mode {
       when "derived-from-or-self(current()/../version, "
@@ -1610,7 +1610,7 @@ module ietf-vrrp {
         type yang:counter64;
         description
           "The total number of times that this virtual router's
-           state has transitioned to 'Active'.
+           state has transitioned to 'active'.
 
            The identifier of this leaf is changed to reflect
            the updated terminology used in RFC 9568. The leaf type
@@ -1944,7 +1944,7 @@ module ietf-vrrp {
   <section title="Migration Path">
   <t>
     The changes to use inclusive language (<xref target="changes"/>) are
-    non-backward compatibly based on the rules in <xref target="RFC7950"/>.
+    non-backward-compatible based on the rules in <xref target="RFC7950"/>.
     However, there are no existing implementations of the ietf-vrrp YANG module
     based on numerous implementation polls. Hence, it was agreed upon to
     change the YANG data nodes with non-inclusive language in a single
@@ -1968,8 +1968,8 @@ module ietf-vrrp {
    designed to be accessed via YANG-based management protocols, such as
    NETCONF <xref target="RFC6241"/> and RESTCONF <xref target="RFC8040"/>.
    These YANG-based protocols (1) have to use a secure transport layer
-   (e.g., SSH <xref target="RFC4252"/>, TLS <xref target="RFC8446"/>, and
-   QUIC <xref target="RFC9000"/>) and (2) have to use mutual authentication.
+   (e.g., <xref target="RFC4252"/>, TLS <xref target="I-D.ietf-tls-rfc8446bis"/>,
+   and QUIC <xref target="RFC9000"/>) and (2) have to use mutual authentication.
 </t>
 
 <t>
@@ -2071,7 +2071,7 @@ module ietf-vrrp {
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8040.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8340.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8347.xml"/>
-    <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8446.xml"/>
+    <xi:include href='https://xml.resource.org/public/rfc/bibxml-ids/reference.I-D.draft-ietf-tls-rfc8446bis-14.xml'/>  
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8639.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8641.xml"/>
     <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9000.xml"/>
